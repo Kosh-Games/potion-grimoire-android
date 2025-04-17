@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4gwraj44qlju"]
+
+[ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
+[ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
+[ext_resource type="Texture2D" uid="uid://denge64ympqho" path="res://Untitled_Artwork 7.png" id="2_wvhap"]
+[ext_resource type="Script" uid="uid://1pdjdatjns2p" path="res://PotionMaking/Ingredients/crystals_test.gd" id="3_s8o4b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyb2g"]
+radius = 99.8248
+
+[node name="MainPotionMaking" type="Node2D"]
+script = ExtResource("1_s8o4b")
+
+[node name="PotionsStateManager" type="Node2D" parent="." node_paths=PackedStringArray("plus_button")]
+script = ExtResource("1_ad18p")
+plus_button = NodePath("../UI")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 303.0
+offset_top = 634.0
+offset_right = 417.0
+offset_bottom = 774.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddCauldron" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -31.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "+"
+
+[node name="CrystalsTest" type="Area2D" parent="." node_paths=PackedStringArray("amount_label")]
+script = ExtResource("3_s8o4b")
+amount_label = NodePath("Amount")
+specs = {
+"amount": 3,
+"id": "1",
+"name": "TestCrystals"
+}
+
+[node name="Image" type="Sprite2D" parent="CrystalsTest"]
+position = Vector2(360, 640)
+scale = Vector2(0.439024, 0.542373)
+texture = ExtResource("2_wvhap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrystalsTest"]
+position = Vector2(123, 677)
+shape = SubResource("CircleShape2D_uyb2g")
+
+[node name="Amount" type="Label" parent="CrystalsTest"]
+offset_left = 174.0
+offset_top = 766.0
+offset_right = 201.0
+offset_bottom = 798.0
+
+[connection signal="pressed" from="UI/AddCauldron" to="PotionsStateManager" method="_on_add_cauldron_pressed" binds= [Vector2(351, 624.5)]]

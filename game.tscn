@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcmdwrhgjgnij"]
+
+[ext_resource type="PackedScene" uid="uid://k4bj6ngaj7ng" path="res://MainMenu.tscn" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("old_scene") instance=ExtResource("1_80nbo")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 362.0
+offset_top = 571.0
+offset_right = 362.0
+offset_bottom = 571.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 6
+size_flags_vertical = 6
+old_scene = NodePath("NinePatchRect")
