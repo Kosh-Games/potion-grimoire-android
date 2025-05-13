@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfx5imwnfyka3"
-path="res://.godot/imported/Untitled_Artwork 10.png-1a15f300d7a0852f9606b0b6daf75bd4.ctex"
+uid="uid://bkv72fg6s2557"
+path="res://.godot/imported/фон.png-52668f9da2a0871d509716698d1f09a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PotionMaking/Coldrun/Untitled_Artwork 10.png"
-dest_files=["res://.godot/imported/Untitled_Artwork 10.png-1a15f300d7a0852f9606b0b6daf75bd4.ctex"]
+source_file="res://visuals/Garden/фон.png"
+dest_files=["res://.godot/imported/фон.png-52668f9da2a0871d509716698d1f09a8.ctex"]
 
 [params]
 
