@@ -1,31 +1,40 @@
+class_name PotionsStateManager
 extends Node2D
 
-const cauldron_scene = preload("uid://cc1sqlrkpbmai")
-# uids of potion scenes
-const all_potions: Dictionary = {
-	"test_potion": "uid://ce52wljgvlrgk"
-										  }
-@onready var all_unlocked_potions: Array[PackedScene] = [preload(all_potions.test_potion)]
-
-@export var new_timer_method: HTTPRequest
-@export var plus_button: Control
+var _active_potions: Dictionary
+var _next_potion_id: int = 0
+@export var SYNC_INTERVAL: float = 60.0
+@export var NetworkManagerNode: Node
 
 
-func add_new_timer(_cauldron_id, time: float):
-	# placeholder
-	var timer = await get_tree().create_timer(time).timeout
+func start_new_potion(potion: Potion):
+	var potion_id: int = _next_potion_id
+	_next_potion_id += 1
 	
+	#creating potion data structure
+	var potion_data: Dictionary = {
+		id = potion_id,
+		potion = potion,
+		start_time = Time.get_unix_time_from_system(),
+		elapsed_time_secs = 0.0,
+		brewing_time = potion.brew_time_sec,
+		last_sync = Time.get_unix_time_from_system()
+					  }
 	
-func add_new_cauldron(button_position, _specs: Dictionary = {null: null}):
-	var new_cauldron = cauldron_scene.instantiate()
-	new_cauldron.position = button_position
-	add_child(new_cauldron)
-
-
-
-
-
-func _on_add_cauldron_pressed(extra_arg_0: Vector2) -> void:
-	add_new_cauldron(extra_arg_0)
-	plus_button.visible = false
-	print(plus_button.name)
+	# adding to active potions
+	_active_potions[potion_id] = potion_data
+	
+#calculation of the time each frame
+func _process(delta: float) -> void:
+	for potion in _active_potions:
+		potion.elapsed_time_secs += delta
+		
+		if Time.get_unix_time_from_system() - potion.last_sync > SYNC_INTERVAL:
+			potion.last_sync = Time.get_unix_time_from_system()
+			_queue_server_sync(potion.id)
+			
+			
+func _queue_server_sync(potion_id: int):
+	var queued_potion = _active_potions[potion_id]
+	NetworkManagerNode.add_potion_to_queue(queued_potion)
+	

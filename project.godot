@@ -8,12 +8,30 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [application]
 
 config/name="Witch potions mobile"
+config/version="0.0.1"
 run/main_scene="uid://bcmdwrhgjgnij"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+uuid="*res://addons/uuid/uuid.gd"
 
 [display]
 
@@ -23,6 +41,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/uuid/plugin.cfg")
 
 [global_group]
 

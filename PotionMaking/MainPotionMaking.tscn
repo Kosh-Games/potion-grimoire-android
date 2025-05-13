@@ -1,68 +1,159 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4gwraj44qlju"]
+[gd_scene load_steps=11 format=3 uid="uid://c4gwraj44qlju"]
 
 [ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
 [ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
-[ext_resource type="Texture2D" uid="uid://denge64ympqho" path="res://Untitled_Artwork 7.png" id="2_wvhap"]
-[ext_resource type="Script" uid="uid://1pdjdatjns2p" path="res://PotionMaking/Ingredients/crystals_test.gd" id="3_s8o4b"]
+[ext_resource type="Texture2D" uid="uid://dhs3aq853k3ui" path="res://visuals/MainPotionMaking/background/стена1.png" id="3_5gl6q"]
+[ext_resource type="Texture2D" uid="uid://dghqy5vownuvb" path="res://visuals/MainPotionMaking/background/стошеница.png" id="4_r6m5x"]
+[ext_resource type="Script" uid="uid://bb05iqf7mu1kw" path="res://PotionMaking/grimoire.gd" id="5_cfo61"]
+[ext_resource type="Texture2D" uid="uid://cdfry687plwaw" path="res://visuals/MainPotionMaking/background/breweryполки.png" id="5_r6m5x"]
+[ext_resource type="Texture2D" uid="uid://cabr081vtqmem" path="res://visuals/MainPotionMaking/book/тень книга.png" id="6_f0hrs"]
+[ext_resource type="Texture2D" uid="uid://eb6arvljm2c3" path="res://visuals/MainPotionMaking/book/книга_.png" id="7_mey11"]
+[ext_resource type="Texture2D" uid="uid://dl788ml4eu475" path="res://visuals/MainPotionMaking/book/opened.png" id="8_f0hrs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uyb2g"]
-radius = 99.8248
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_5gl6q"]
+custom_solver_bias = 0.014
+points = PackedVector2Array(-17.2857, 4.57143, -6.93171, -7.70943, 16.7143, -2.85715, 10, 8.57143)
 
-[node name="MainPotionMaking" type="Node2D"]
+[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button")]
 script = ExtResource("1_s8o4b")
+plus_button = NodePath("Table/TableContents/Buttons UI")
 
-[node name="PotionsStateManager" type="Node2D" parent="." node_paths=PackedStringArray("plus_button")]
+[node name="PotionsStateManager" type="Node2D" parent="."]
 script = ExtResource("1_ad18p")
-plus_button = NodePath("../UI")
 
-[node name="UI" type="Control" parent="."]
+[node name="Visuals" type="Node" parent="."]
+
+[node name="Wall" type="TextureRect" parent="Visuals"]
+z_index = -1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 81.0
+grow_horizontal = 2
+texture = ExtResource("3_5gl6q")
+
+[node name="Desktop" type="TextureRect" parent="Visuals"]
+z_index = -1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.504
+anchor_right = 1.0
+anchor_bottom = 0.728
+offset_left = -0.72
+offset_top = -0.119995
+offset_bottom = 0.160034
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r6m5x")
+
+[node name="Shelves" type="TextureRect" parent="Visuals"]
+z_index = -1
+anchors_preset = -1
+anchor_top = 0.724
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.279968
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_r6m5x")
+
+[node name="Table" type="Node" parent="."]
+
+[node name="TableContents" type="Control" parent="Table"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 303.0
-offset_top = 634.0
-offset_right = 417.0
-offset_bottom = 774.0
+anchor_left = -0.00694444
+anchor_top = 0.501313
+anchor_right = 1.00278
+anchor_bottom = 0.725
+offset_top = 0.319946
+offset_bottom = 8.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons UI" type="Control" parent="Table/TableContents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 308.0
+offset_top = -132.0
+offset_right = -300.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AddCauldron" type="Button" parent="UI"]
+[node name="AddCauldron" type="Button" parent="Table/TableContents/Buttons UI"]
 unique_name_in_owner = true
+z_index = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.351
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -17.0
+anchor_right = 0.666
+anchor_bottom = 0.709
+offset_left = 0.00984573
 offset_top = -31.0
-offset_right = 1.0
+offset_right = -17.9506
+offset_bottom = -30.932
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 text = "+"
 
-[node name="CrystalsTest" type="Area2D" parent="." node_paths=PackedStringArray("amount_label")]
-script = ExtResource("3_s8o4b")
-amount_label = NodePath("Amount")
-specs = {
-"amount": 3,
-"id": "1",
-"name": "TestCrystals"
-}
+[node name="GrimoireControl" type="Control" parent="Table/TableContents"]
+layout_mode = 1
+anchor_left = 0.241
+anchor_top = 0.573
+anchor_right = 0.463
+anchor_bottom = 0.972
+offset_left = -19.0406
+offset_top = 14.976
+offset_right = -19.3601
+offset_bottom = 15.064
 
-[node name="Image" type="Sprite2D" parent="CrystalsTest"]
-position = Vector2(360, 640)
-scale = Vector2(0.439024, 0.542373)
-texture = ExtResource("2_wvhap")
+[node name="Grimoire" type="Area2D" parent="Table/TableContents/GrimoireControl" node_paths=PackedStringArray("control_node")]
+position = Vector2(55.577, 46.494)
+script = ExtResource("5_cfo61")
+control_node = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CrystalsTest"]
-position = Vector2(123, 677)
-shape = SubResource("CircleShape2D_uyb2g")
+[node name="ТеньКнига" type="Sprite2D" parent="Table/TableContents/GrimoireControl/Grimoire"]
+position = Vector2(0.477997, 7.034)
+texture = ExtResource("6_f0hrs")
 
-[node name="Amount" type="Label" parent="CrystalsTest"]
-offset_left = 174.0
-offset_top = 766.0
-offset_right = 201.0
-offset_bottom = 798.0
+[node name="Книга" type="Sprite2D" parent="Table/TableContents/GrimoireControl/Grimoire"]
+visible = false
+position = Vector2(-122.522, -56.966)
+texture = ExtResource("7_mey11")
 
-[connection signal="pressed" from="UI/AddCauldron" to="PotionsStateManager" method="_on_add_cauldron_pressed" binds= [Vector2(351, 624.5)]]
+[node name="BookRect" type="TextureRect" parent="Table/TableContents/GrimoireControl/Grimoire"]
+offset_left = -122.522
+offset_top = -56.966
+offset_right = 115.478
+offset_bottom = 59.034
+texture = ExtResource("7_mey11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/TableContents/GrimoireControl/Grimoire"]
+position = Vector2(2.478, -5.966)
+scale = Vector2(7, 7)
+shape = SubResource("ConvexPolygonShape2D_5gl6q")
+
+[node name="GrimoireMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="GrimoireMenu"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 180.0
+offset_right = 673.0
+offset_bottom = 1181.0
+texture = ExtResource("8_f0hrs")
+
+[connection signal="pressed" from="Table/TableContents/Buttons UI/AddCauldron" to="." method="_on_add_cauldron_pressed" binds= [Vector2(351, 624.5)]]
+[connection signal="input_event" from="Table/TableContents/GrimoireControl/Grimoire" to="Table/TableContents/GrimoireControl/Grimoire" method="_on_input_event"]
