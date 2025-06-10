@@ -32,11 +32,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 uuid="*res://addons/uuid/uuid.gd"
+NetworkManagerGlobal="*res://GloballyUsedScripts/network_manager.gd"
+GodotPlayGameServices="*res://addons/GodotPlayGameServices/scripts/autoloads/godot_play_game_services.gd"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
@@ -44,7 +47,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/uuid/plugin.cfg")
+enabled=PackedStringArray("res://addons/GodotPlayGameServices/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/uuid/plugin.cfg")
 
 [global_group]
 

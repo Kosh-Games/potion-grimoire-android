@@ -61,10 +61,10 @@ texture = ExtResource("5_r6m5x")
 
 [node name="TableContents" type="Control" parent="Table"]
 layout_mode = 3
-anchor_left = -0.00694444
-anchor_top = 0.501313
-anchor_right = 1.00278
-anchor_bottom = 0.725
+anchor_left = -0.00138889
+anchor_top = 0.506
+anchor_right = 0.997222
+anchor_bottom = 0.700781
 offset_top = 0.319946
 offset_bottom = 8.0
 grow_vertical = 2
@@ -72,13 +72,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Buttons UI" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 308.0
-offset_top = -132.0
-offset_right = -300.0
-offset_bottom = -272.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.499908
+offset_top = -184.975
+offset_right = -0.499908
+offset_bottom = -184.975
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -88,15 +90,15 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.351
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.666
-anchor_bottom = 0.709
-offset_left = 0.00984573
-offset_top = -31.0
-offset_right = -17.9506
-offset_bottom = -30.932
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -15.5
+offset_right = 9.0
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -104,14 +106,14 @@ text = "+"
 
 [node name="GrimoireControl" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchor_left = 0.241
+anchor_left = 0.295
 anchor_top = 0.573
 anchor_right = 0.463
-anchor_bottom = 0.972
-offset_left = -19.0406
+anchor_bottom = 1.0
+offset_left = -57.8666
 offset_top = 14.976
 offset_right = -19.3601
-offset_bottom = 15.064
+offset_bottom = 7.86801
 
 [node name="Grimoire" type="Area2D" parent="Table/TableContents/GrimoireControl" node_paths=PackedStringArray("control_node")]
 position = Vector2(55.577, 46.494)

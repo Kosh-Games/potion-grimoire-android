@@ -4,7 +4,6 @@ extends Node2D
 var _active_potions: Dictionary
 var _next_potion_id: int = 0
 @export var SYNC_INTERVAL: float = 60.0
-@export var NetworkManagerNode: Node
 
 
 func start_new_potion(potion: Potion):
@@ -36,5 +35,5 @@ func _process(delta: float) -> void:
 			
 func _queue_server_sync(potion_id: int):
 	var queued_potion = _active_potions[potion_id]
-	NetworkManagerNode.add_potion_to_queue(queued_potion)
+	NetworkManagerGlobal.add_potion_to_queue(queued_potion)
 	

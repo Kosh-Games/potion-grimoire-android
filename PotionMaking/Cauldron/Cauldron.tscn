@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://ci02u6upbpgnh" path="res://PotionMaking/Cauldron/cauldron.gd" id="1_cp4sl"]
 [ext_resource type="Texture2D" uid="uid://bwrwhdhay8ae2" path="res://visuals/MainPotionMaking/cauldron/котел (1).png" id="2_0ud3e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cp4sl"]
-radius = 84.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rck3"]
+radius = 35.0
+height = 212.0
 
 [node name="Cauldron" type="Node2D" groups=["drop_zones"]]
 script = ExtResource("1_cp4sl")
@@ -15,4 +16,6 @@ texture = ExtResource("2_0ud3e")
 [node name="DropArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
-shape = SubResource("CircleShape2D_cp4sl")
+position = Vector2(0, -88)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0rck3")

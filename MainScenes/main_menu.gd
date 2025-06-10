@@ -51,7 +51,6 @@ func _on_start_game_pressed() -> void:
 		get_tree().root.add_child(instanced_scene) 	
 		get_tree().current_scene = instanced_scene
 		var potions_manager = instanced_scene.get_node('PotionsStateManager')
-		potions_manager.NetworkManagerNode = NetworkManagerNode_start
 	else:
 		var start_scene_instance: Node = get_node_or_null('/root/{scene_name}'.format({'scene_name': start_scene_name}))
 		start_scene_instance.visible = true
