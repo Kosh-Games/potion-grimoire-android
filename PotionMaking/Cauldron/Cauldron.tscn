@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc1sqlrkpbmai"]
+[gd_scene load_steps=5 format=3 uid="uid://cc1sqlrkpbmai"]
 
 [ext_resource type="Script" uid="uid://ci02u6upbpgnh" path="res://PotionMaking/Cauldron/cauldron.gd" id="1_cp4sl"]
 [ext_resource type="Texture2D" uid="uid://bwrwhdhay8ae2" path="res://visuals/MainPotionMaking/cauldron/котел (1).png" id="2_0ud3e"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rck3"]
 radius = 35.0
 height = 212.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0rck3"]
+font_size = 30
 
 [node name="Cauldron" type="Node2D" node_paths=PackedStringArray("timer_label", "start_button", "collect_button") groups=["drop_zones"]]
 script = ExtResource("1_cp4sl")
@@ -28,6 +31,7 @@ offset_left = -56.0
 offset_top = -210.0
 offset_right = 57.0
 offset_bottom = -169.0
+label_settings = SubResource("LabelSettings_0rck3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
