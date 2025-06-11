@@ -7,8 +7,11 @@
 radius = 35.0
 height = 212.0
 
-[node name="Cauldron" type="Node2D" groups=["drop_zones"]]
+[node name="Cauldron" type="Node2D" node_paths=PackedStringArray("timer_label", "start_button", "collect_button") groups=["drop_zones"]]
 script = ExtResource("1_cp4sl")
+timer_label = NodePath("Label")
+start_button = NodePath("Control/Start")
+collect_button = NodePath("Control/Claim")
 
 [node name="CauldronImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_0ud3e")
@@ -19,3 +22,31 @@ texture = ExtResource("2_0ud3e")
 position = Vector2(0, -88)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0rck3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -210.0
+offset_right = 57.0
+offset_bottom = -169.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 153.0
+offset_right = 55.0
+offset_bottom = 212.0
+text = "Start"
+
+[node name="Claim" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = -29.0
+offset_right = 323.0
+offset_bottom = 30.0
+text = "Claim"

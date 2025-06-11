@@ -7,7 +7,6 @@ extends Node
 var gpgs_auth_token = null # To store the server auth code
 
 func _ready():
-	print(Engine.get_singleton_list())
 	if Engine.has_singleton("GodotPlayGameServices"):
 		var gpgs: Object = Engine.get_singleton("GodotPlayGameServices")
 		# Connect signals for sign-in results

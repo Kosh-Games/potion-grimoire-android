@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcmdwrhgjgnij"]
 
+[ext_resource type="Script" uid="uid://cqiit13ohjxc5" path="res://MainScenes/game.gd" id="1_c234f"]
 [ext_resource type="PackedScene" uid="uid://k4bj6ngaj7ng" path="res://MainScenes/MainMenu.tscn" id="2_o3s8j"]
 [ext_resource type="Script" uid="uid://2slu5le0rgt1" path="res://GloballyUsedScripts/scene_load_manager.gd" id="3_o3s8j"]
 [ext_resource type="Script" uid="uid://cs00kigvg2oxf" path="res://MainScenes/google_auth_main.gd" id="4_b70xl"]
-[ext_resource type="Script" uid="uid://8yd0brfuqok3" path="res://MainScenes/signal_bus.gd" id="4_c234f"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
+script = ExtResource("1_c234f")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_o3s8j")]
 anchors_preset = 0
@@ -22,9 +23,6 @@ grow_vertical = 1
 
 [node name="SceneLoadManager" type="Node" parent="."]
 script = ExtResource("3_o3s8j")
-
-[node name="SignalBus" type="Node" parent="."]
-script = ExtResource("4_c234f")
 
 [node name="GoogleAuthMain" type="Node" parent="."]
 script = ExtResource("4_b70xl")
