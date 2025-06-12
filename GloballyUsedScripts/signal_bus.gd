@@ -18,4 +18,13 @@ signal item_collected(item_id, server_response)
 
 # Emitted when a collect request fails.
 signal item_collect_failed(item_id, server_response)
+
+# -- Data Loading Signals --
+# Emitted after the NetworkManager gets a list of all static item types
+signal item_types_received(item_data)
+
+# Emitted when user owned ingredients recieved
+signal ingredients_received(ingredient_data)
+	
+signal 
 	

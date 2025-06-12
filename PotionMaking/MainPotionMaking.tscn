@@ -14,9 +14,10 @@
 custom_solver_bias = 0.014
 points = PackedVector2Array(-17.2857, 4.57143, -6.93171, -7.70943, 16.7143, -2.85715, 10, 8.57143)
 
-[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button")]
+[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button", "TableContents")]
 script = ExtResource("1_s8o4b")
 plus_button = NodePath("Table/TableContents/Buttons UI")
+TableContents = NodePath("Table/TableContents")
 
 [node name="PotionsStateManager" type="Node2D" parent="."]
 script = ExtResource("1_ad18p")

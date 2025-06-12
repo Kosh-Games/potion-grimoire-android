@@ -4,7 +4,7 @@ extends Node
 # --- Basic Config ---
 const uuid_util = preload('res://addons/uuid/uuid.gd')
 # --- Server Configuration ---
-@export var base_api_url: String = "https://grimoire-api-dev.kosh.games" # Change this to your actual server URL
+@export var base_api_url: String = "https://grimoire-api-dev.kosh.games"
 
 # --- Player State ---
 var user_id: String = "d55e4905-610e-478a-930d-e3c05412f67c"
@@ -22,6 +22,7 @@ func _login():
 		file.close()
 
 	if saved_id.is_empty():
+		print('user_id was empty')
 		saved_id = user_id
 
 	var data_to_send: Dictionary = {"id": saved_id}
@@ -29,6 +30,23 @@ func _login():
 	post_request("/users/login", data_to_send, metadata)
 
 
+# --- GET Request Template ---
+func get_request(endpoint: String, metadata: Dictionary):
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(_on_request_completed.bind(metadata, http_request))
+
+	var url: String = "%s%s" % [base_api_url, endpoint]
+	# GET requests don't have a body, so headers are simpler.
+	var headers: Array[Variant] = ["Content-Type: application/json"]
+
+	print("Sending GET request to '%s' with metadata: %s" % [endpoint, metadata])
+	var error = http_request.request(url, headers, HTTPClient.METHOD_GET)
+	if error != OK:
+		printerr("HTTPRequest failed for '%s': %s" % [endpoint, error])
+		http_request.queue_free()
+
+# --- POST Request Template ---
 func post_request(endpoint: String, data: Dictionary, metadata: Dictionary):
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
