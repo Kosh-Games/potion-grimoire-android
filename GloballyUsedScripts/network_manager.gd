@@ -71,30 +71,31 @@ func _on_request_completed(result, response_code, headers, body, metadata, reque
 
 	if response_code != 200:
 		printerr("API Error for '%s': Status %d, Body: %s" % [request_type, response_code, response_body])
-		match request_type:
-			"start_brewing":
-				SignalBus.emit_signal("brew_failed", metadata.get("item_id"), response_body)
-			"collect_item":
-				SignalBus.emit_signal("item_collect_failed", metadata.get("item_id"), response_body)
-			"login":
-				SignalBus.emit_signal("login_failed")
-		
+		# You might want to add failure signals for get requests here too
 		request_node.queue_free()
 		return
-		
+
+	# On success, emit the correct signal on the bus
 	match request_type:
 		"login":
 			if response_body.has("user_id"):
-				self.user_id = response_body["user_id"]
-				SignalBus.emit_signal("login_successful", self.user_id)
-				print('login successful')
+				print('We are logged in')
+				PlayerData.user_id = response_body["user_id"]
 			else:
 				SignalBus.emit_signal("login_failed")
 		"start_brewing":
 			SignalBus.emit_signal("brew_started", metadata.get("item_id"), response_body)
 		"collect_item":
 			SignalBus.emit_signal("item_collected", metadata.get("item_id"), response_body)
+			
+		"fetch_item_types":
+			SignalBus.emit_signal("item_types_received", response_body)
+			
+		"fetch_user_items":
+			SignalBus.emit_signal("user_items_recieved", response_body)
+			
+
 		_:
 			print("Received response for unknown request type: ", request_type)
-	
+
 	request_node.queue_free()

@@ -12,7 +12,7 @@ var is_brewing: bool = false
 func _ready():
 	# Connect to the signals from the central bus
 	SignalBus.brew_started.connect(_on_brew_started)
-	SignalBus.item_collected.connect(_on_item_collected)
+	SignalBus.potion_collected.connect(_on_item_collected)
 
 	start_button.pressed.connect(start_brewing_pressed)
 	collect_button.pressed.connect(collect_potion_pressed)
@@ -78,7 +78,8 @@ func _on_brew_started(id_from_signal: String, server_response: Dictionary) -> vo
 func _on_item_collected(id_from_signal: String, server_response: Dictionary) -> void:
 	if id_from_signal != self.item_id:
 		return
-
+	
+	# Todo: Add the process of updating the user inventory
 	print("'%s' collected successfully!" % self.item_id)
 	time_left = 0
 	is_brewing = false # Reset state

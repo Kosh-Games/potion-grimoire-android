@@ -1,5 +1,4 @@
-class_name SignalBusTemplate
-extends Node
+﻿extends Node
 
 # -- System Signals --
 signal login_successful(user_id)
@@ -14,17 +13,24 @@ signal brew_started(item_id, server_response)
 signal brew_failed(item_id, server_response)
 
 # Emitted when the server confirms an item has been collected.
-signal item_collected(item_id, server_response)
+signal potion_collected(item_id, server_response)
 
 # Emitted when a collect request fails.
-signal item_collect_failed(item_id, server_response)
+signal potion_collect_failed(item_id, server_response)
 
 # -- Data Loading Signals --
 # Emitted after the NetworkManager gets a list of all static item types
 signal item_types_received(item_data)
 
+# Emiited when user owned items are recieved
+signal user_items_recieved(user_item_list)
+
 # Emitted when user owned ingredients recieved
-signal ingredients_received(ingredient_data)
+signal user_ingredients_received(user_ingredient_data)
+
+# Emiited when user owned potions recieved
+signal user_potions_recieved(user_potions_data)
 	
-signal 
+# Emitted after checking if there's a need to update static data
+signal server_data_version_changed(version_data)
 	
