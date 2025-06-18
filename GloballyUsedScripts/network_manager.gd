@@ -79,7 +79,6 @@ func _on_request_completed(result, response_code, headers, body, metadata, reque
 	match request_type:
 		"login":
 			if response_body.has("user_id"):
-				print('We are logged in')
 				PlayerData.user_id = response_body["user_id"]
 			else:
 				SignalBus.emit_signal("login_failed")
@@ -90,10 +89,24 @@ func _on_request_completed(result, response_code, headers, body, metadata, reque
 			
 		"fetch_item_types":
 			SignalBus.emit_signal("item_types_received", response_body)
-			
+
 		"fetch_user_items":
-			SignalBus.emit_signal("user_items_recieved", response_body)
+			SignalBus.emit_signal("user_items_received", response_body)
 			
+		"get_ingredients":
+			SignalBus.emit_signal("ingredients_received", response_body)
+
+		"get_user_ingredients":
+			SignalBus.emit_signal("user_ingredients_received", response_body)
+			
+		"get_potions":
+			SignalBus.emit_signal("potions_received", response_body)
+
+		"get_user_potions":
+			SignalBus.emit_signal("user_potions_received", response_body)
+			
+		"get_recipes":
+			SignalBus.emit_signal("recipes_received", response_body)
 
 		_:
 			print("Received response for unknown request type: ", request_type)

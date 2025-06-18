@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc1sqlrkpbmai"]
+[gd_scene load_steps=6 format=3 uid="uid://cc1sqlrkpbmai"]
 
 [ext_resource type="Script" uid="uid://ci02u6upbpgnh" path="res://PotionMaking/Cauldron/cauldron.gd" id="1_cp4sl"]
 [ext_resource type="Texture2D" uid="uid://bwrwhdhay8ae2" path="res://visuals/MainPotionMaking/cauldron/котел (1).png" id="2_0ud3e"]
+[ext_resource type="Script" uid="uid://8yd0brfuqok3" path="res://GloballyUsedScripts/signal_bus.gd" id="3_7c08i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rck3"]
 radius = 35.0
@@ -25,6 +26,7 @@ texture = ExtResource("2_0ud3e")
 position = Vector2(0, -88)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0rck3")
+script = ExtResource("3_7c08i")
 
 [node name="TimerLabel" type="Label" parent="."]
 offset_left = -56.0

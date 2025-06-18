@@ -1,7 +1,7 @@
 ﻿extends Node
 
 # -- System Signals --
-signal login_successful(user_id)
+signal login_successful(new_user_id)
 signal login_failed
 
 # -- Gameplay Signals --
@@ -23,13 +23,22 @@ signal potion_collect_failed(item_id, server_response)
 signal item_types_received(item_data)
 
 # Emiited when user owned items are recieved
-signal user_items_recieved(user_item_list)
+signal user_items_received(user_item_list)
+
+# Emitted when the list on ingredients is received
+signal ingredients_received(ingredients_list)
 
 # Emitted when user owned ingredients recieved
 signal user_ingredients_received(user_ingredient_data)
 
+# Emitted when the list of the potions is received
+signal potions_received(potions_list)
+
 # Emiited when user owned potions recieved
-signal user_potions_recieved(user_potions_data)
+signal user_potions_received(user_potions_data)
+
+# Emitted when the list of the recipes is received
+signal recipes_received(recipes_data)
 	
 # Emitted after checking if there's a need to update static data
 signal server_data_version_changed(version_data)
