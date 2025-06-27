@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var item_id: String = "7ec18e0d-c371-4a83-8380-11b545bec001" # Set this in the Inspector
+@export var item_id: String
 
 @export var timer_label: Label
 @export var start_button: Button
@@ -16,6 +16,25 @@ func _ready():
 
 	start_button.pressed.connect(start_brewing_pressed)
 	collect_button.pressed.connect(collect_potion_pressed)
+
+	update_visual_state()
+
+
+func initialize(server_data: Dictionary, definition: ItemDefinition):
+	# Set properties from the server (level, active timer, etc.)
+	self.item_id = server_data["item_id"]
+	# ... set level, timer, etc. ...
+
+	# Set properties from the local definition (visuals, etc.)
+	# This assumes your cauldron scene has a Sprite2D node named CauldronSprite
+	var sprite_node = $CauldronImage # Or the correct path
+	if sprite_node and definition.display_sprite:
+		sprite_node.texture = definition.display_sprite
+
+	# You can also configure other things from the definition
+	# var animation_player = $AnimationPlayer
+	# var anim_name = definition.custom_properties.get("idle_animation", "default_idle")
+	# animation_player.play(anim_name)
 
 	update_visual_state()
 

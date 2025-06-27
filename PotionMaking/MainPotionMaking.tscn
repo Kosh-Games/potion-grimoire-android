@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4gwraj44qlju"]
+[gd_scene load_steps=12 format=3 uid="uid://c4gwraj44qlju"]
 
 [ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
 [ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dghqy5vownuvb" path="res://visuals/MainPotionMaking/background/стошеница.png" id="4_r6m5x"]
 [ext_resource type="Script" uid="uid://bb05iqf7mu1kw" path="res://PotionMaking/grimoire.gd" id="5_cfo61"]
 [ext_resource type="Texture2D" uid="uid://cdfry687plwaw" path="res://visuals/MainPotionMaking/background/breweryполки.png" id="5_r6m5x"]
+[ext_resource type="Script" uid="uid://bp4qy5ody55ii" path="res://PotionMaking/cauldron_carousel.gd" id="6_5gl6q"]
 [ext_resource type="Texture2D" uid="uid://cabr081vtqmem" path="res://visuals/MainPotionMaking/book/тень книга.png" id="6_f0hrs"]
 [ext_resource type="Texture2D" uid="uid://eb6arvljm2c3" path="res://visuals/MainPotionMaking/book/книга_.png" id="7_mey11"]
 [ext_resource type="Texture2D" uid="uid://dl788ml4eu475" path="res://visuals/MainPotionMaking/book/opened.png" id="8_f0hrs"]
@@ -14,10 +15,11 @@
 custom_solver_bias = 0.014
 points = PackedVector2Array(-17.2857, 4.57143, -6.93171, -7.70943, 16.7143, -2.85715, 10, 8.57143)
 
-[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button", "TableContents")]
+[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button", "TableContents", "scene_list")]
 script = ExtResource("1_s8o4b")
 plus_button = NodePath("Table/TableContents/Buttons UI")
 TableContents = NodePath("Table/TableContents")
+scene_list = [NodePath("Visuals/Wall"), NodePath("Visuals/Desktop"), NodePath("Visuals/Shelves"), NodePath("Table/TableContents")]
 
 [node name="PotionsStateManager" type="Node2D" parent="."]
 script = ExtResource("1_ad18p")
@@ -32,6 +34,7 @@ anchor_bottom = 0.5
 offset_bottom = 81.0
 grow_horizontal = 2
 texture = ExtResource("3_5gl6q")
+metadata/_edit_use_anchors_ = true
 
 [node name="Desktop" type="TextureRect" parent="Visuals"]
 z_index = -1
@@ -46,6 +49,7 @@ offset_bottom = 0.160034
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_r6m5x")
+metadata/_edit_use_anchors_ = true
 
 [node name="Shelves" type="TextureRect" parent="Visuals"]
 z_index = -1
@@ -57,10 +61,11 @@ offset_top = 0.279968
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("5_r6m5x")
+metadata/_edit_use_anchors_ = true
 
 [node name="Table" type="Node" parent="."]
 
-[node name="TableContents" type="Control" parent="Table"]
+[node name="TableContents" type="Control" parent="Table" node_paths=PackedStringArray("cauldron_container")]
 layout_mode = 3
 anchor_left = -0.00138889
 anchor_top = 0.506
@@ -69,9 +74,12 @@ anchor_bottom = 0.700781
 offset_top = 0.319946
 offset_bottom = 8.0
 grow_vertical = 2
+script = ExtResource("6_5gl6q")
+cauldron_container = NodePath("CauldronContainer")
 metadata/_edit_use_anchors_ = true
 
 [node name="Buttons UI" type="Control" parent="Table/TableContents"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -86,6 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="AddCauldron" type="Button" parent="Table/TableContents/Buttons UI"]
 unique_name_in_owner = true
@@ -104,6 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 text = "+"
+metadata/_edit_use_anchors_ = true
 
 [node name="GrimoireControl" type="Control" parent="Table/TableContents"]
 layout_mode = 1
@@ -115,6 +125,7 @@ offset_left = -57.8666
 offset_top = 14.976
 offset_right = -19.3601
 offset_bottom = 7.86801
+metadata/_edit_use_anchors_ = true
 
 [node name="Grimoire" type="Area2D" parent="Table/TableContents/GrimoireControl" node_paths=PackedStringArray("control_node")]
 position = Vector2(55.577, 46.494)
@@ -136,11 +147,15 @@ offset_top = -56.966
 offset_right = 115.478
 offset_bottom = 59.034
 texture = ExtResource("7_mey11")
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table/TableContents/GrimoireControl/Grimoire"]
 position = Vector2(2.478, -5.966)
 scale = Vector2(7, 7)
 shape = SubResource("ConvexPolygonShape2D_5gl6q")
+
+[node name="CauldronContainer" type="Node2D" parent="Table/TableContents"]
+position = Vector2(360, 0)
 
 [node name="GrimoireMenu" type="Control" parent="."]
 visible = false
@@ -158,5 +173,6 @@ offset_right = 673.0
 offset_bottom = 1181.0
 texture = ExtResource("8_f0hrs")
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Table/TableContents/Buttons UI/AddCauldron" to="." method="_on_add_cauldron_pressed" binds= [Vector2(351, 624.5)]]
 [connection signal="input_event" from="Table/TableContents/GrimoireControl/Grimoire" to="Table/TableContents/GrimoireControl/Grimoire" method="_on_input_event"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://k4bj6ngaj7ng"]
+[gd_scene load_steps=7 format=3 uid="uid://k4bj6ngaj7ng"]
 
 [ext_resource type="StyleBox" uid="uid://2in0nmhh5q4l" path="res://new_style_box_flat_2.tres" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://dh2xjjurq0aoh" path="res://Untitled 3.png" id="2_h7a2f"]
 [ext_resource type="StyleBox" uid="uid://bf48s10h6bxhy" path="res://new_style_box_flat_pressed.tres" id="2_qoqlk"]
 [ext_resource type="Script" uid="uid://cu3ief4hj7bpq" path="res://MainScenes/main_menu.gd" id="3_qoqlk"]
-[ext_resource type="PackedScene" uid="uid://c4gwraj44qlju" path="res://PotionMaking/MainPotionMaking.tscn" id="4_iwfq2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
 
@@ -15,7 +14,7 @@ Button/styles/hover = ExtResource("1_eiy7p")
 Button/styles/normal = ExtResource("1_eiy7p")
 Button/styles/pressed = ExtResource("2_qoqlk")
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("old_scene")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_menu_scene")]
 layout_mode = 3
 anchor_left = 0.327
 anchor_top = 0.334
@@ -31,10 +30,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_qoqlk")
 script = ExtResource("3_qoqlk")
-scenes_to_preload = Dictionary[String, PackedScene]({
-"brewery": ExtResource("4_iwfq2")
-})
-old_scene = NodePath(".")
+main_menu_scene = NodePath(".")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1

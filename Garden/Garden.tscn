@@ -6,10 +6,11 @@
 [node name="Garden" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(269, 173)
 texture = ExtResource("1_s6y1s")
 
-[node name="Visuals" type="Node" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
 
 [node name="MainControl" type="Control" parent="Visuals"]
 layout_mode = 3
@@ -25,3 +26,5 @@ anchor_bottom = 36.875
 offset_right = -696.0
 offset_bottom = -1435.0
 texture = ExtResource("2_v2x4u")
+
+[node name="PotsContainer" type="Node2D" parent="."]

@@ -9,6 +9,7 @@ const uuid_util = preload('res://addons/uuid/uuid.gd')
 
 @export var plus_button: Control
 @export var TableContents: Control
+@export var scene_list: Array[Control]
 
 
 func add_new_cauldron(button_position, _specs: Dictionary = {null: null}):
@@ -20,3 +21,8 @@ func add_new_cauldron(button_position, _specs: Dictionary = {null: null}):
 func _on_add_cauldron_pressed(extra_arg_0: Vector2) -> void:
 	add_new_cauldron(extra_arg_0)
 	plus_button.visible = false
+
+
+func _on_visibility_changed() -> void:
+	for scene in scene_list: 
+		scene.visible = not scene.visible
