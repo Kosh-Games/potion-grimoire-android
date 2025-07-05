@@ -31,7 +31,7 @@ func populate_potion_list():
 	for child in item_list_container.get_children():
 		child.queue_free()
 
-	# Get all the potion definitions from our resource manager.
+	# Get all the potion resources from our resource manager.
 	var all_potions: Dictionary = ResourceManager.potions
 
 	for potion_id in all_potions:
