@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce52wljgvlrgk"]
+[gd_scene load_steps=8 format=3 uid="uid://ce52wljgvlrgk"]
 
 [ext_resource type="Texture2D" uid="uid://bex60pwd8hr1y" path="res://icon.svg" id="1_s6y1s"]
 [ext_resource type="Texture2D" uid="uid://bkv72fg6s2557" path="res://visuals/Garden/фон.png" id="2_v2x4u"]
+[ext_resource type="Texture2D" uid="uid://c1ibv3nejayl5" path="res://visuals/Garden/ночной вид.png" id="3_k8weu"]
+[ext_resource type="Texture2D" uid="uid://b87sflh55532k" path="res://visuals/Garden/подоконник.png" id="3_l5o1o"]
+[ext_resource type="Texture2D" uid="uid://cx4bu5mt4ubkw" path="res://visuals/Garden/Слой 2.png" id="4_k8weu"]
+[ext_resource type="Texture2D" uid="uid://dcinsuvhhiwgg" path="res://visuals/Garden/верхняя палка.png" id="5_58rod"]
+[ext_resource type="Texture2D" uid="uid://chahp6qbuyuyj" path="res://visuals/Garden/нижняя полка.png" id="6_6tqyu"]
 
 [node name="Garden" type="Node2D"]
 
@@ -15,16 +20,62 @@ texture = ExtResource("1_s6y1s")
 [node name="MainControl" type="Control" parent="Visuals"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 720.0
+offset_bottom = 1560.0
 
 [node name="Background" type="TextureRect" parent="Visuals/MainControl"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 18.4
-anchor_bottom = 36.875
-offset_right = -696.0
-offset_bottom = -1435.0
+anchor_right = 17.95
+anchor_bottom = 35.975
+offset_right = -11484.0
+offset_bottom = -53001.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v2x4u")
+
+[node name="OutsideView" type="TextureRect" parent="Visuals/MainControl"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 147.0
+offset_right = 651.0
+offset_bottom = 886.0
+texture = ExtResource("3_k8weu")
+
+[node name="WindowFrame" type="TextureRect" parent="Visuals/MainControl"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 129.0
+offset_right = 671.0
+offset_bottom = 978.0
+texture = ExtResource("3_l5o1o")
+
+[node name="IronFrame" type="TextureRect" parent="Visuals/MainControl"]
+layout_mode = 0
+offset_left = 65.89
+offset_top = 147.0
+offset_right = 650.89
+offset_bottom = 885.0
+texture = ExtResource("4_k8weu")
+
+[node name="ShelfsContainer" type="Control" parent="Visuals/MainControl"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shelf1" type="TextureRect" parent="Visuals/MainControl/ShelfsContainer"]
+layout_mode = 0
+offset_top = 1122.0
+offset_right = 736.0
+offset_bottom = 1229.0
+texture = ExtResource("5_58rod")
+
+[node name="Shelf2" type="TextureRect" parent="Visuals/MainControl/ShelfsContainer"]
+layout_mode = 0
+offset_top = 1283.0
+offset_right = 736.0
+offset_bottom = 1404.0
+texture = ExtResource("6_6tqyu")
 
 [node name="PotsContainer" type="Node2D" parent="."]

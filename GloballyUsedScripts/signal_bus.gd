@@ -5,9 +5,6 @@ signal login_successful(new_user_id)
 signal login_failed
 
 # -- Gameplay Signals --
-# Emitted when the server confirms a brew has started.
-# Passes the item_id so the correct object can react.
-signal brew_started(item_id, server_response)
 
 # Emitted when a brew request fails at the server.
 signal brew_failed(item_id, server_response)
@@ -17,6 +14,12 @@ signal potion_collected(item_id, server_response)
 
 # Emitted when a collect request fails.
 signal potion_collect_failed(item_id, server_response)
+
+# Emitted when timer item changes state.
+signal item_state_updated(item_data)
+
+# Emitted when a potion/ingredient is claimed
+signal item_collected(item_data)
 
 # -- Data Loading Signals --
 # Emitted after the NetworkManager gets a list of all static item types

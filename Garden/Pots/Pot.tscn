@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2med2pdde2v3"]
+
+[ext_resource type="Texture2D" uid="uid://cb17rx6d6wg7k" path="res://visuals/Garden/Pots/Pot.png" id="1_654xa"]
+
+[node name="Pot" type="Node2D"]
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_654xa")

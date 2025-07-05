@@ -43,7 +43,7 @@ func _on_user_items_received(data: Array):
 		# Step 4: Initialize the new instance with ALL the data it needs
 		if new_item_instance.has_method("initialize"):
 			# We pass both the server data and the local definition
-			new_item_instance.initialize(item_data, definition)
+			new_item_instance.initialize(item_data, definition, ResourceManager)
 			print('the instance is initialised')
 			print(item_type.area)
 

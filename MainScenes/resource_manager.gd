@@ -1,5 +1,7 @@
 extends Node
 
+@export var asset_map: Resource
+
 # Dictionaries to hold all our game data, indexed by ID
 var item_types: Dictionary = {}
 var ingredients: Dictionary = {}
@@ -21,11 +23,6 @@ func start_loading_sequence(user_id):
 	var item_types_data = await SignalBus.item_types_received
 	await on_item_types_received(item_types_data)
 
-	# Step 2: Fetch the items this specific user owns
-	fetch_user_items(user_id)
-	var user_items_data = await SignalBus.user_items_received
-	on_user_items_received(user_items_data)
-
 	# Step 3: Fetch all possible ingredients
 	fetch_ingredients()
 	var ingredients_data = await SignalBus.ingredients_received
@@ -46,6 +43,11 @@ func start_loading_sequence(user_id):
 
 	var user_potions_data = await SignalBus.user_potions_received 
 	on_user_potions_received(user_potions_data)
+
+	# Step 2: Fetch the items this specific user owns
+	fetch_user_items(user_id)
+	var user_items_data = await SignalBus.user_items_received
+	on_user_items_received(user_items_data)
 
 	# Step 7: Fetch all possible recipes
 	fetch_recipes()
@@ -115,7 +117,7 @@ func on_ingredients_received(data: Array):
 		ingredients[res.id] = res
 	print("Processed %d ingredients." % ingredients.size())
 
-		
+
 func on_potions_received(data: Array):
 	for item_data in data:
 		var res = PotionResource.new()
@@ -123,9 +125,19 @@ func on_potions_received(data: Array):
 		res.item_name = item_data["name"]
 		res.rarity = item_data["rarity"]
 		res.collection_id = item_data["collection_id"]
-#		res.asset_key = item_data.get("asset_key", "")
+
+		# --- NEW LOGIC HERE ---
+		var asset_key = item_data.get("asset_key", "")
+		if not asset_key.is_empty():
+			if asset_map.sprite_map.has(asset_key):
+				# If the key exists in our map, load the texture
+				res.icon = load(asset_map.sprite_map[asset_key])
+			else:
+				# As requested, print an error if the key is not found
+				printerr("Asset key '%s' for potion '%s' not found in asset_map.tres." % [asset_key, res.item_name])
+
 		potions[res.id] = res
-	print("Processed %d potions." % potions.size())
+	print("Loaded %d potions." % potions.size())
 
 		
 func on_recipes_received(data: Array):
@@ -169,13 +181,13 @@ func on_user_items_received(data: Array):
 
 func on_user_ingredients_received(data: Array):
 	for item_data in data:
-		var item_type: IngredientResource = get_ingredient(item_data.id)
+		var item_type: IngredientResource = get_ingredient(item_data.ingredient_id)
 		print("Player has potion: ", item_type.item_name)
 
 
 func on_user_potions_received(data: Array):
 	for item_data in data:
-		var item_type: PotionResource = get_potion(item_data.id)
+		var item_type: PotionResource = get_potion(item_data.potion_id)
 		print("Player has potion: ", item_type.item_name)
 		
 

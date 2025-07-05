@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2o7u65q3batc"]
+
+[sub_resource type="GDScript" id="GDScript_46bsj"]
+script/source = "extends Resource
+
+@export var sprite_map: Dictionary[String, String]
+"
+
+[resource]
+script = SubResource("GDScript_46bsj")
+sprite_map = Dictionary[String, String]({
+"potion_arcanemirrortonic": "res://PotionMaking/Potions/Images/ArcaneMirrorTonic.png",
+"potion_astralgateelixir": "res://PotionMaking/Potions/Images/AstralGateElixir.png",
+"potion_chronoseerpotion": "res://PotionMaking/Potions/Images/ChronoseerPotion.png",
+"potion_elixirofthenorthstar": "res://PotionMaking/Potions/Images/elixiroftheNorthStar.png",
+"potion_flaskofarcaneechoes": "res://PotionMaking/Potions/Images/FlaskofArcaneEchoes.png",
+"potion_lumenvial": "res://PotionMaking/Potions/Images/LumenVial.png",
+"potion_moonlightwellspringelixir": "res://PotionMaking/Potions/Images/MoonlightWellspringElixir.png",
+"potion_potionofelementalharmony": "res://PotionMaking/Potions/Images/PotionofElementalHarmony.png",
+"potion_sigilguardbrew": "res://PotionMaking/Potions/Images/SigilguardBrew.png",
+"potion_tinctureofminorlevitation": "res://PotionMaking/Potions/Images/TinctureofMinorLevitation.png"
+})

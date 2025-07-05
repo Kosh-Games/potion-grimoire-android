@@ -42,7 +42,7 @@ GodotPlayGameServices="*res://addons/GodotPlayGameServices/scripts/autoloads/god
 [display]
 
 window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_height=1560
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1

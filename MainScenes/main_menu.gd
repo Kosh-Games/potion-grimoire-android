@@ -2,10 +2,12 @@ extends Control
 
 @export var main_menu_scene: Node
 @export var brewery_scene: Node2D
+@export var garden_scene: Node2D
+@export var garden_button: Button
 
 
 func _ready() -> void:
-	pass
+	garden_button.connect('pressed', on_garden_button_pressed)
 #	brewery_scene = scenes_to_preload['brewery']
 #	var path: String = brewery_scene.get_path()
 #	# Temporary variable for initial setup
@@ -59,3 +61,8 @@ func _on_start_game_pressed() -> void:
 #		return false
 #	else:
 #		return true
+
+	
+func on_garden_button_pressed() -> void:
+	main_menu_scene.visible = false
+	garden_scene.visible = true

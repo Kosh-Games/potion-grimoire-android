@@ -1,4 +1,4 @@
-﻿class_name CollectionResource
+class_name CollectionResource
 extends Resource
 
 @export var id: String

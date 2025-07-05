@@ -83,7 +83,8 @@ func _on_request_completed(result, response_code, headers, body, metadata, reque
 			else:
 				SignalBus.emit_signal("login_failed")
 		"start_brewing":
-			SignalBus.emit_signal("brew_started", metadata.get("item_id"), response_body)
+			SignalBus.emit_signal("item_state_updated", response_body)
+			
 		"collect_item":
 			SignalBus.emit_signal("item_collected", metadata.get("item_id"), response_body)
 			
