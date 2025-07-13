@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc1sqlrkpbmai"]
+[gd_scene load_steps=5 format=3 uid="uid://cc1sqlrkpbmai"]
 
 [ext_resource type="Script" uid="uid://ci02u6upbpgnh" path="res://PotionMaking/Cauldron/cauldron.gd" id="1_cp4sl"]
 [ext_resource type="Texture2D" uid="uid://bwrwhdhay8ae2" path="res://visuals/MainPotionMaking/cauldron/котел (1).png" id="2_0ud3e"]
-[ext_resource type="Script" uid="uid://8yd0brfuqok3" path="res://GloballyUsedScripts/signal_bus.gd" id="3_7c08i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rck3"]
 radius = 35.0
@@ -11,7 +10,8 @@ height = 212.0
 [sub_resource type="LabelSettings" id="LabelSettings_0rck3"]
 font_size = 30
 
-[node name="Cauldron" type="Node2D" node_paths=PackedStringArray("timer_label", "collect_potion_button") groups=["drop_zones"]]
+[node name="Cauldron" type="Node2D" node_paths=PackedStringArray("timer_label", "collect_potion_button")]
+scale = Vector2(2.2, 2.2)
 script = ExtResource("1_cp4sl")
 timer_label = NodePath("TimerLabel")
 collect_potion_button = NodePath("Control/ClaimButton")
@@ -25,7 +25,6 @@ texture = ExtResource("2_0ud3e")
 position = Vector2(0, -88)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0rck3")
-script = ExtResource("3_7c08i")
 
 [node name="TimerLabel" type="Label" parent="."]
 offset_left = -56.0
@@ -37,15 +36,14 @@ label_settings = SubResource("LabelSettings_0rck3")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 161.818
+offset_top = 89.5455
+offset_right = 201.818
+offset_bottom = 129.545
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ClaimButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 126.0
-offset_right = 195.0
-offset_bottom = 166.0
+layout_mode = 1
 scale = Vector2(0.4, 0.4)
 mouse_filter = 1

@@ -1,3 +1,4 @@
+class_name ResourceManager
 extends Node
 
 @export var asset_map: Resource
@@ -113,7 +114,12 @@ func on_ingredients_received(data: Array):
 		res.item_name = item_data["name"]
 		res.rarity = item_data["rarity"]
 		res.area = item_data["area"]
-#		res.asset_key = item_data.get("asset_key", "") # Use .get for optional keys
+		var asset_key = item_data.get("asset_key", "")
+		if not asset_key.is_empty():
+			if asset_map.sprite_map.has(asset_key):
+				res.art_resource = asset_map.sprite_map[asset_key].ingredient_resource
+			else:
+				printerr("THERE IS NO ASSET FOR THE INGREDIENT %s" % asset_key)
 		ingredients[res.id] = res
 	print("Processed %d ingredients." % ingredients.size())
 
@@ -125,15 +131,12 @@ func on_potions_received(data: Array):
 		res.item_name = item_data["name"]
 		res.rarity = item_data["rarity"]
 		res.collection_id = item_data["collection_id"]
-
-		# --- NEW LOGIC HERE ---
+		
 		var asset_key = item_data.get("asset_key", "")
 		if not asset_key.is_empty():
 			if asset_map.sprite_map.has(asset_key):
-				# If the key exists in our map, load the texture
-				res.icon = load(asset_map.sprite_map[asset_key])
+				res.icon = load(asset_map.sprite_map[asset_key].image_path)
 			else:
-				# As requested, print an error if the key is not found
 				printerr("Asset key '%s' for potion '%s' not found in asset_map.tres." % [asset_key, res.item_name])
 
 		potions[res.id] = res
@@ -182,7 +185,7 @@ func on_user_items_received(data: Array):
 func on_user_ingredients_received(data: Array):
 	for item_data in data:
 		var item_type: IngredientResource = get_ingredient(item_data.ingredient_id)
-		print("Player has potion: ", item_type.item_name)
+		print("Player has ingredient: ", item_type.item_name)
 
 
 func on_user_potions_received(data: Array):

@@ -30,7 +30,7 @@ script = ExtResource("1_ad18p")
 z_index = -1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.452564
+anchor_bottom = 0.487821
 offset_bottom = 81.0
 grow_horizontal = 2
 texture = ExtResource("3_5gl6q")
@@ -76,25 +76,31 @@ offset_bottom = 8.0
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("6_5gl6q")
-sliding_container = NodePath("CauldronAnchor/CauldronContainer")
+sliding_container = NodePath("SubViewportContainer/SubViewport/Cauldrons/CauldronContainer")
 metadata/_edit_use_anchors_ = true
 
 [node name="Visuals" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.097
-offset_left = 1.0
-offset_top = -2.67993
-offset_right = 1.00018
-offset_bottom = -0.437622
+anchor_left = -0.11622
+anchor_top = -0.0584988
+anchor_right = 0.963362
+anchor_bottom = 1.1055
+offset_left = 170.124
+offset_top = 36.0
+offset_right = -426.314
+offset_bottom = -219.321
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CauldronStandShadow" type="Sprite2D" parent="Table/TableContents/Visuals"]
-position = Vector2(355.235, 126.6)
+position = Vector2(449.417, 191.965)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_dkvq6")
 
 [node name="CauldronStand" type="Sprite2D" parent="Table/TableContents/Visuals"]
-position = Vector2(355.235, 102.525)
+position = Vector2(449.417, 167.89)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_limwe")
 
 [node name="Buttons UI" type="Control" parent="Table/TableContents"]
@@ -111,6 +117,7 @@ offset_right = -0.499908
 offset_bottom = -184.975
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
@@ -134,16 +141,41 @@ scale = Vector2(2, 2)
 text = "+"
 metadata/_edit_use_anchors_ = true
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Table/TableContents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_left = -2.876
+offset_top = -1579.04
+offset_right = 5.43823
+offset_bottom = 925.563
+grow_horizontal = 2
+
+[node name="SubViewport" type="SubViewport" parent="Table/TableContents/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1440, 3120)
+render_target_update_mode = 4
+
+[node name="Cauldrons" type="Node2D" parent="Table/TableContents/SubViewportContainer/SubViewport"]
+position = Vector2(700, 0)
+
+[node name="CauldronContainer" type="Node2D" parent="Table/TableContents/SubViewportContainer/SubViewport/Cauldrons"]
+position = Vector2(700, 1603)
+
 [node name="GrimoireControl" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchor_left = 0.295
-anchor_top = 0.573
-anchor_right = 0.463
-anchor_bottom = 1.0
-offset_left = -57.8666
-offset_top = 14.976
-offset_right = -19.3601
-offset_bottom = 7.86801
+anchor_left = 0.088
+anchor_top = 0.63
+anchor_right = 0.266
+anchor_bottom = 0.928
+offset_left = 46.456
+offset_top = 16.3
+offset_right = -69.5079
+offset_bottom = -56.0883
+scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="Grimoire" type="Node2D" parent="Table/TableContents/GrimoireControl"]
@@ -154,31 +186,18 @@ script = ExtResource("5_cfo61")
 position = Vector2(0.477997, 7.034)
 texture = ExtResource("6_f0hrs")
 
-[node name="BookRect" type="TextureRect" parent="Table/TableContents/GrimoireControl/Grimoire"]
-offset_left = -122.522
-offset_top = -56.966
-offset_right = 115.478
-offset_bottom = 59.034
-texture = ExtResource("7_mey11")
-metadata/_edit_use_anchors_ = true
-
 [node name="TextureButton" type="TextureButton" parent="Table/TableContents/GrimoireControl/Grimoire"]
-offset_left = -122.522
-offset_top = -56.966
-offset_right = 115.478
-offset_bottom = 59.034
+offset_left = -122.91
+offset_top = -57.1607
+offset_right = 115.09
+offset_bottom = 58.8393
 texture_normal = ExtResource("7_mey11")
 texture_pressed = ExtResource("7_mey11")
 texture_hover = ExtResource("7_mey11")
 texture_focused = ExtResource("7_mey11")
-
-[node name="CauldronAnchor" type="Node2D" parent="Table/TableContents"]
-position = Vector2(360, -15)
-
-[node name="CauldronContainer" type="Node2D" parent="Table/TableContents/CauldronAnchor"]
+metadata/_edit_use_anchors_ = true
 
 [node name="GrimoireMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("item_list_container", "grimoire_button", "cauldron_carousel")]
-visible = false
 script = ExtResource("10_r6m5x")
 potion_item_scene = ExtResource("11_45kxc")
 item_list_container = NodePath("InputCatcherPanel/ScrollContainer/GridContainer")
@@ -186,10 +205,10 @@ grimoire_button = NodePath("../Table/TableContents/GrimoireControl/Grimoire/Text
 cauldron_carousel = NodePath("../Table/TableContents")
 
 [node name="TextureRect" type="TextureRect" parent="GrimoireMenu"]
-offset_left = -667.0
-offset_top = 23.0
-offset_right = 731.0
-offset_bottom = 1255.0
+offset_left = -1290.0
+offset_top = 161.0
+offset_right = 1435.0
+offset_bottom = 2888.0
 mouse_filter = 0
 texture = ExtResource("12_45kxc")
 
@@ -205,12 +224,14 @@ size_flags_vertical = 3
 [node name="ScrollContainer" type="ScrollContainer" parent="GrimoireMenu/InputCatcherPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.119
-anchor_top = 0.146
-anchor_right = 0.937
-anchor_bottom = 0.923
-offset_top = 0.11998
-offset_right = 0.359985
+anchor_left = 0.07
+anchor_top = 0.086
+anchor_right = 0.942
+anchor_bottom = 0.862
+offset_left = 0.199997
+offset_top = -1.32001
+offset_right = -7.4801
+offset_bottom = 1.55981
 size_flags_vertical = 3
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
@@ -220,8 +241,15 @@ vertical_scroll_mode = 3
 [node name="GridContainer" type="GridContainer" parent="GrimoireMenu/InputCatcherPanel/ScrollContainer"]
 layout_mode = 2
 mouse_force_pass_scroll_events = false
-theme_override_constants/h_separation = 210
-theme_override_constants/v_separation = 265
+theme_override_constants/h_separation = 415
+theme_override_constants/v_separation = 650
+columns = 3
+
+[node name="GridContainer2" type="GridContainer" parent="GrimoireMenu/InputCatcherPanel/ScrollContainer"]
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/h_separation = 415
+theme_override_constants/v_separation = 650
 columns = 3
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

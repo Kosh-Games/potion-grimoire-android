@@ -31,7 +31,7 @@ func _ready() -> void:
 
 func _on_start_game_pressed() -> void:
 	main_menu_scene.visible = false
-	brewery_scene.visible = true
+	brewery_scene.visible = false
 	
 #	# Todo: Move the proccess higher up to specific SceneManager Node and just pass names in this function
 #	var old_scene_loaded: Node = get_node('../MainMenu')

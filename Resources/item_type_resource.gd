@@ -6,3 +6,4 @@ extends Resource
 @export var max_level: int
 @export var area: Enums.ItemTypeArea # "Garden", "Brewery", etc.
 @export var scene: PackedScene # A reference to the .tscn file for this item
+# TODO: add an index for displaying the right order every time

@@ -111,7 +111,7 @@ func update_visual_state():
 			collect_potion_button.texture_normal = potion_res.icon
 		else:
 			# Fallback icon if something goes wrong
-			collect_potion_button.texture_normal = load("res://PotionMaking/Potions/placeholder_potion.png")
+			collect_potion_button.texture_normal = load("res://visuals/MainPotionMaking/Potions/placeholder_potion.png")
 
 
 

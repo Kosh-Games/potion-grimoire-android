@@ -27,6 +27,7 @@ config/name="Witch potions mobile"
 config/version="0.0.1"
 run/main_scene="uid://bcmdwrhgjgnij"
 config/features=PackedStringArray("4.4", "Mobile")
+run/max_fps=120
 config/icon="res://icon.svg"
 
 [autoload]
@@ -41,12 +42,12 @@ GodotPlayGameServices="*res://addons/GodotPlayGameServices/scripts/autoloads/god
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1560
-window/size/borderless=true
+window/size/viewport_width=1440
+window/size/viewport_height=3120
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
+window/max_fps=120
 
 [editor_plugins]
 
