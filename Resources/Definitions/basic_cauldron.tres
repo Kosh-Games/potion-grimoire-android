@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=3 format=3 uid="uid://bkojwrjh5vj3n"]
+
+[ext_resource type="Script" uid="uid://otvq8rdc1bjt" path="res://Resources/Definitions/item_definition.gd" id="1_72nup"]
+[ext_resource type="PackedScene" uid="uid://cc1sqlrkpbmai" path="res://PotionMaking/Cauldron/Cauldron.tscn" id="1_ep16f"]
+
+[resource]
+script = ExtResource("1_72nup")
+item_type_id = "2c3cedc7-3932-42b9-86ff-4c1e6d079352"
+scene = ExtResource("1_ep16f")
+custom_properties = {}
+metadata/_custom_type_script = "uid://otvq8rdc1bjt"

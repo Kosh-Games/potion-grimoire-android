@@ -3,11 +3,18 @@ extends Node
 # Assuming the plugin's singleton is named "GodotPlayGameServices"
 # Adjust based on the actual plugin API
 @export var api_server_url := 'https://grimoire-api-dev.kosh.games/'
+@export var sign_in_node: PlayGamesSignInClient
 
 var gpgs_auth_token = null # To store the server auth code
 
+
+func _enter_tree():
+	GodotPlayGameServices.initialize()
+
+
 func _ready():
 	if Engine.has_singleton("GodotPlayGameServices"):
+		
 		var gpgs: Object = Engine.get_singleton("GodotPlayGameServices")
 		# Connect signals for sign-in results
 		gpgs.connect("sign_in_success", Callable(self, "_on_gpgs_sign_in_success"))
@@ -16,7 +23,7 @@ func _ready():
 		gpgs.connect("request_server_side_access_failed", Callable(self, "_on_gpgs_server_auth_code_failed"))
 
 		# Attempt to sign in (or show a button to trigger this)
-		gpgs.sign_in()
+		sign_in_node.sign_in()
 	else:
 		print("Google Play Games Services plugin not found.")
 
@@ -53,4 +60,3 @@ func send_token_to_server(platform: String, token: String):
 	var error                   = http_request.request("{server_url}/auth/login".format({"server_url": api_server_url}), headers, HTTPClient.METHOD_POST, body)
 	if error != OK:
 		print("An error occurred in the HTTP request.")
-

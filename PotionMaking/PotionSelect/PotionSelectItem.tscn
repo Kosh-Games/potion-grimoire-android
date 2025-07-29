@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxygxdrher51i"]
+
+[ext_resource type="Script" uid="uid://nwvcqp8m44g2" path="res://PotionMaking/PotionSelect/potion_select_item.gd" id="1_hre3t"]
+
+[node name="PotionSelectItem" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.012
+anchor_bottom = 0.006
+offset_right = -8.64
+offset_bottom = -7.68
+mouse_filter = 1
+script = ExtResource("1_hre3t")
+
+[node name="PotionIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 320.0
+scale = Vector2(0.5, 0.5)
+
+[node name="SelectButton" type="Button" parent="PotionIcon"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 320.0
+mouse_filter = 1
+
+[node name="PotionNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 100.0
+offset_bottom = 215.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

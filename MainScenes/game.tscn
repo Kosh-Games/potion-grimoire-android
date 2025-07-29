@@ -1,28 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcmdwrhgjgnij"]
+[gd_scene load_steps=11 format=3 uid="uid://bcmdwrhgjgnij"]
 
 [ext_resource type="Script" uid="uid://cqiit13ohjxc5" path="res://MainScenes/game.gd" id="1_c234f"]
 [ext_resource type="PackedScene" uid="uid://k4bj6ngaj7ng" path="res://MainScenes/MainMenu.tscn" id="2_o3s8j"]
-[ext_resource type="Script" uid="uid://2slu5le0rgt1" path="res://GloballyUsedScripts/scene_load_manager.gd" id="3_o3s8j"]
+[ext_resource type="Script" uid="uid://dabfhhyh5pnd0" path="res://GloballyUsedScripts/scene_builder.gd" id="3_b70xl"]
 [ext_resource type="Script" uid="uid://cs00kigvg2oxf" path="res://MainScenes/google_auth_main.gd" id="4_b70xl"]
+[ext_resource type="Script" uid="uid://bulnb2jpb3aq6" path="res://addons/GodotPlayGameServices/scripts/sign_in/sign_in_client.gd" id="5_a3su8"]
+[ext_resource type="Script" uid="uid://bpaeokpadivpl" path="res://MainScenes/resource_manager.gd" id="5_b70xl"]
+[ext_resource type="PackedScene" uid="uid://c4gwraj44qlju" path="res://PotionMaking/MainPotionMaking.tscn" id="6_6fi7t"]
+[ext_resource type="Resource" uid="uid://b2o7u65q3batc" path="res://Resources/asset_map.tres" id="7_4y1ac"]
+[ext_resource type="PackedScene" uid="uid://ce52wljgvlrgk" path="res://Garden/Garden.tscn" id="7_hmerr"]
+[ext_resource type="PackedScene" uid="uid://8fq0icjjvgp4" path="res://Cats/cats_bar.tscn" id="8_bmphd"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_c234f")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_o3s8j")]
-anchors_preset = 0
+[node name="MainMenu" parent="." node_paths=PackedStringArray("brewery_scene", "garden_scene") instance=ExtResource("2_o3s8j")]
 anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_top = 0.322
+anchor_right = 1.0
+anchor_bottom = 0.685
 offset_left = 324.0
-offset_top = 568.0
-offset_right = 324.0
-offset_bottom = 568.0
+offset_top = 237.84
+offset_right = -396.0
+offset_bottom = -226.8
 grow_horizontal = 1
 grow_vertical = 1
+brewery_scene = NodePath("../MainPotionMaking")
+garden_scene = NodePath("../Garden")
 
-[node name="SceneLoadManager" type="Node" parent="."]
-script = ExtResource("3_o3s8j")
+[node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "garden_container", "cats_container", "cauldron_carousel", "ResourceManager")]
+script = ExtResource("3_b70xl")
+brewery_container = NodePath("../MainPotionMaking/Table/TableContents/CauldronAnchor/CauldronContainer")
+garden_container = NodePath("../Garden/PotsContainer")
+cats_container = NodePath("../CatsBar/CatsContainer")
+cauldron_carousel = NodePath("../MainPotionMaking/Table/TableContents")
+ResourceManager = NodePath("../ResourceManager")
 
-[node name="GoogleAuthMain" type="Node" parent="."]
+[node name="GoogleAuthMain" type="Node" parent="." node_paths=PackedStringArray("sign_in_node")]
 script = ExtResource("4_b70xl")
+sign_in_node = NodePath("PlayGamesSignInClient")
+
+[node name="PlayGamesSignInClient" type="Node" parent="GoogleAuthMain"]
+script = ExtResource("5_a3su8")
+metadata/_custom_type_script = "uid://bulnb2jpb3aq6"
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("5_b70xl")
+asset_map = ExtResource("7_4y1ac")
+
+[node name="MainPotionMaking" parent="." instance=ExtResource("6_6fi7t")]
+visible = false
+position = Vector2(340, 342)
+
+[node name="GrimoireMenu" parent="MainPotionMaking" index="3" node_paths=PackedStringArray("ResourceManager")]
+ResourceManager = NodePath("../../ResourceManager")
+
+[node name="Garden" parent="." instance=ExtResource("7_hmerr")]
+visible = false
+
+[node name="CatsBar" parent="." instance=ExtResource("8_bmphd")]
+
+[editable path="MainPotionMaking"]
+[editable path="Garden"]
+[editable path="CatsBar"]
