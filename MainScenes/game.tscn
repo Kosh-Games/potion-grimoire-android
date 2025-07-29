@@ -20,20 +20,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1240.0
-offset_top = -2721.0
-offset_right = 128.0
-offset_bottom = 359.0
-scale = Vector2(2, 2)
+offset_left = -720.0
+offset_top = -1560.0
+offset_right = 720.0
+offset_bottom = 1560.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 brewery_scene = NodePath("../MainPotionMaking")
 garden_scene = NodePath("../Garden")
 
-[node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "garden_container", "cats_container", "cauldron_carousel", "ResourceManager")]
+[node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "cats_container", "cauldron_carousel", "ResourceManager")]
 script = ExtResource("3_b70xl")
 brewery_container = NodePath("../MainPotionMaking/Table/TableContents/SubViewportContainer/SubViewport/Cauldrons/CauldronContainer")
-garden_container = NodePath("../Garden/PotsContainer")
 cats_container = NodePath("../CatsBar/CatsContainer")
 cauldron_carousel = NodePath("../MainPotionMaking/Table/TableContents")
 ResourceManager = NodePath("../ResourceManager")
@@ -50,16 +50,22 @@ metadata/_custom_type_script = "uid://bulnb2jpb3aq6"
 script = ExtResource("5_b70xl")
 asset_map = ExtResource("7_4y1ac")
 
-[node name="MainPotionMaking" parent="." instance=ExtResource("6_6fi7t")]
-position = Vector2(340, 342)
+[node name="MainPotionMaking" parent="." node_paths=PackedStringArray("main_menu") instance=ExtResource("6_6fi7t")]
+visible = false
+main_menu = NodePath("../MainMenu")
+
+[node name="SubViewport" parent="MainPotionMaking/Table/TableContents/SubViewportContainer" index="0"]
+render_target_update_mode = 0
 
 [node name="GrimoireMenu" parent="MainPotionMaking" index="3" node_paths=PackedStringArray("ResourceManager")]
 ResourceManager = NodePath("../../ResourceManager")
 
-[node name="Garden" parent="." instance=ExtResource("7_hmerr")]
+[node name="Garden" parent="." node_paths=PackedStringArray("menu") instance=ExtResource("7_hmerr")]
 visible = false
+menu = NodePath("../MainMenu")
 
 [node name="CatsBar" parent="." instance=ExtResource("8_bmphd")]
+visible = false
 
 [editable path="MainPotionMaking"]
 [editable path="Garden"]

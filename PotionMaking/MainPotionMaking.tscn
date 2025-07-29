@@ -1,39 +1,41 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4gwraj44qlju"]
+[gd_scene load_steps=16 format=3 uid="uid://c4gwraj44qlju"]
 
 [ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
 [ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
-[ext_resource type="Texture2D" uid="uid://dhs3aq853k3ui" path="res://visuals/MainPotionMaking/background/стена1.png" id="3_5gl6q"]
-[ext_resource type="Texture2D" uid="uid://dghqy5vownuvb" path="res://visuals/MainPotionMaking/background/стошеница.png" id="4_r6m5x"]
+[ext_resource type="Texture2D" uid="uid://vnaufjt3coy2" path="res://visuals/MainPotionMaking/New/Background .png" id="3_dkvq6"]
+[ext_resource type="Texture2D" uid="uid://dpmxnl3ib01l4" path="res://visuals/MainPotionMaking/New/Table.png" id="4_a8s81"]
+[ext_resource type="Texture2D" uid="uid://cgvpocnrfycy1" path="res://visuals/MainPotionMaking/New/Window.png" id="5_6e38n"]
 [ext_resource type="Script" uid="uid://bb05iqf7mu1kw" path="res://PotionMaking/grimoire.gd" id="5_cfo61"]
-[ext_resource type="Texture2D" uid="uid://cdfry687plwaw" path="res://visuals/MainPotionMaking/background/breweryполки.png" id="5_r6m5x"]
 [ext_resource type="Script" uid="uid://bp4qy5ody55ii" path="res://PotionMaking/cauldron_carousel.gd" id="6_5gl6q"]
-[ext_resource type="Texture2D" uid="uid://cabr081vtqmem" path="res://visuals/MainPotionMaking/book/тень книга.png" id="6_f0hrs"]
-[ext_resource type="Texture2D" uid="uid://cdkp3utllnank" path="res://visuals/MainPotionMaking/cauldron/тень подставки.png" id="7_dkvq6"]
-[ext_resource type="Texture2D" uid="uid://eb6arvljm2c3" path="res://visuals/MainPotionMaking/book/книга_.png" id="7_mey11"]
-[ext_resource type="Texture2D" uid="uid://b0wrwx2g44a0r" path="res://visuals/MainPotionMaking/cauldron/подставка.png" id="10_limwe"]
+[ext_resource type="Texture2D" uid="uid://c7mux7lwn8jgg" path="res://visuals/MainPotionMaking/New/Window mask.png" id="6_83oa1"]
+[ext_resource type="Texture2D" uid="uid://csul8odxfm44f" path="res://visuals/MainPotionMaking/New/Cauldron shadow.png" id="8_dtsst"]
+[ext_resource type="Texture2D" uid="uid://c8elobpdixcqk" path="res://visuals/MainPotionMaking/New/Cauldron stand.png" id="9_cfdie"]
 [ext_resource type="Script" uid="uid://nrv8un1uk7sq" path="res://PotionMaking/PotionSelect/grimoire_menu.gd" id="10_r6m5x"]
 [ext_resource type="PackedScene" uid="uid://dxygxdrher51i" path="res://PotionMaking/PotionSelect/PotionSelectItem.tscn" id="11_45kxc"]
+[ext_resource type="Texture2D" uid="uid://eibwrtsx2rh0" path="res://visuals/MainPotionMaking/New/Book.png" id="11_qm6lt"]
 [ext_resource type="Texture2D" uid="uid://beeqamnwpmk45" path="res://visuals/MainPotionMaking/book/книга copy.png" id="12_45kxc"]
+[ext_resource type="Texture2D" uid="uid://ca6hsarjsgxnj" path="res://visuals/TEMP/—Pngtree—game button return button icon_5320505.png" id="15_6e38n"]
 
-[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button", "TableContents", "scene_list")]
+[node name="MainPotionMaking" type="Node2D" node_paths=PackedStringArray("plus_button", "TableContents", "back_button")]
 script = ExtResource("1_s8o4b")
 plus_button = NodePath("Table/TableContents/Buttons UI")
 TableContents = NodePath("Table/TableContents")
-scene_list = [NodePath("Visuals/Wall"), NodePath("Visuals/Desktop"), NodePath("Visuals/Shelves"), NodePath("Table/TableContents")]
+back_button = NodePath("BackButton")
 
 [node name="PotionsStateManager" type="Node2D" parent="."]
 script = ExtResource("1_ad18p")
 
-[node name="Visuals" type="Node" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
 
-[node name="Wall" type="TextureRect" parent="Visuals"]
+[node name="Background" type="TextureRect" parent="Visuals"]
 z_index = -1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.487821
-offset_bottom = 81.0
+offset_right = 1440.0
+offset_bottom = 3120.0
 grow_horizontal = 2
-texture = ExtResource("3_5gl6q")
+texture = ExtResource("3_dkvq6")
 metadata/_edit_use_anchors_ = true
 
 [node name="Desktop" type="TextureRect" parent="Visuals"]
@@ -43,65 +45,64 @@ anchor_left = 0.001
 anchor_top = 0.503923
 anchor_right = 1.0
 anchor_bottom = 0.728103
-offset_left = -0.72
-offset_top = -0.835022
-offset_bottom = -0.555054
+offset_right = 1440.0
+offset_bottom = 3120.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_r6m5x")
+texture = ExtResource("4_a8s81")
 metadata/_edit_use_anchors_ = true
 
-[node name="Shelves" type="TextureRect" parent="Visuals"]
+[node name="Window" type="TextureRect" parent="Visuals"]
 z_index = -1
 anchors_preset = -1
-anchor_top = 0.72418
+anchor_left = 0.001
+anchor_top = 0.503923
 anchor_right = 1.0
-anchor_bottom = 0.967308
-offset_top = 0.279968
+anchor_bottom = 0.728103
+offset_right = 1440.0
+offset_bottom = 3120.0
 grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("5_r6m5x")
+grow_vertical = 2
+texture = ExtResource("5_6e38n")
 metadata/_edit_use_anchors_ = true
 
-[node name="Table" type="Node" parent="."]
-
-[node name="TableContents" type="Control" parent="Table" node_paths=PackedStringArray("sliding_container")]
-layout_mode = 3
-anchor_left = -0.00138889
-anchor_top = 0.506
-anchor_right = 0.997222
-anchor_bottom = 0.700781
-offset_top = 0.319946
-offset_bottom = 8.0
+[node name="WindowMask" type="TextureRect" parent="Visuals"]
+z_index = -1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.503923
+anchor_right = 1.0
+anchor_bottom = 0.728103
+offset_right = 1440.0
+offset_bottom = 3120.0
+grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("6_83oa1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Table" type="Node2D" parent="."]
+
+[node name="TableContents" type="Control" parent="Table" node_paths=PackedStringArray("sliding_container", "scene_root")]
+layout_mode = 3
+anchors_preset = 0
 mouse_filter = 1
 script = ExtResource("6_5gl6q")
 sliding_container = NodePath("SubViewportContainer/SubViewport/Cauldrons/CauldronContainer")
+scene_root = NodePath("../..")
 metadata/_edit_use_anchors_ = true
 
 [node name="Visuals" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchor_left = -0.11622
-anchor_top = -0.0584988
-anchor_right = 0.963362
-anchor_bottom = 1.1055
-offset_left = 170.124
-offset_top = 36.0
-offset_right = -426.314
-offset_bottom = -219.321
-scale = Vector2(1.5, 1.5)
+anchors_preset = 0
 mouse_filter = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="CauldronStandShadow" type="Sprite2D" parent="Table/TableContents/Visuals"]
-position = Vector2(449.417, 191.965)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_dkvq6")
+position = Vector2(720, 1560)
+texture = ExtResource("8_dtsst")
 
 [node name="CauldronStand" type="Sprite2D" parent="Table/TableContents/Visuals"]
-position = Vector2(449.417, 167.89)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("10_limwe")
+position = Vector2(720, 1560)
+texture = ExtResource("9_cfdie")
 
 [node name="Buttons UI" type="Control" parent="Table/TableContents"]
 visible = false
@@ -120,6 +121,7 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AddCauldron" type="Button" parent="Table/TableContents/Buttons UI"]
@@ -143,15 +145,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Table/TableContents"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.002
-anchor_right = 0.999
-anchor_bottom = 1.0
-offset_left = -2.876
-offset_top = -1579.04
-offset_right = 5.43823
-offset_bottom = 925.563
-grow_horizontal = 2
+offset_right = 1440.0
+offset_bottom = 3120.0
 
 [node name="SubViewport" type="SubViewport" parent="Table/TableContents/SubViewportContainer"]
 transparent_bg = true
@@ -160,44 +155,35 @@ size = Vector2i(1440, 3120)
 render_target_update_mode = 4
 
 [node name="Cauldrons" type="Node2D" parent="Table/TableContents/SubViewportContainer/SubViewport"]
-position = Vector2(700, 0)
+position = Vector2(720, 0)
 
 [node name="CauldronContainer" type="Node2D" parent="Table/TableContents/SubViewportContainer/SubViewport/Cauldrons"]
-position = Vector2(700, 1603)
+position = Vector2(0, 1719.55)
 
 [node name="GrimoireControl" type="Control" parent="Table/TableContents"]
 layout_mode = 1
-anchor_left = 0.088
-anchor_top = 0.63
-anchor_right = 0.266
+anchor_left = 0.002
+anchor_top = 0.514
+anchor_right = 1.0
 anchor_bottom = 0.928
-offset_left = 46.456
-offset_top = 16.3
-offset_right = -69.5079
-offset_bottom = -56.0883
-scale = Vector2(1.5, 1.5)
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Grimoire" type="Node2D" parent="Table/TableContents/GrimoireControl"]
-position = Vector2(55.577, 46.494)
 script = ExtResource("5_cfo61")
 
-[node name="ТеньКнига" type="Sprite2D" parent="Table/TableContents/GrimoireControl/Grimoire"]
-position = Vector2(0.477997, 7.034)
-texture = ExtResource("6_f0hrs")
-
 [node name="TextureButton" type="TextureButton" parent="Table/TableContents/GrimoireControl/Grimoire"]
-offset_left = -122.91
-offset_top = -57.1607
-offset_right = 115.09
-offset_bottom = 58.8393
-texture_normal = ExtResource("7_mey11")
-texture_pressed = ExtResource("7_mey11")
-texture_hover = ExtResource("7_mey11")
-texture_focused = ExtResource("7_mey11")
+offset_right = 1440.0
+offset_bottom = 3120.0
+mouse_filter = 1
+texture_normal = ExtResource("11_qm6lt")
+texture_pressed = ExtResource("11_qm6lt")
+texture_hover = ExtResource("11_qm6lt")
+texture_focused = ExtResource("11_qm6lt")
 metadata/_edit_use_anchors_ = true
 
 [node name="GrimoireMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("item_list_container", "grimoire_button", "cauldron_carousel")]
+visible = false
 script = ExtResource("10_r6m5x")
 potion_item_scene = ExtResource("11_45kxc")
 item_list_container = NodePath("InputCatcherPanel/ScrollContainer/GridContainer")
@@ -209,7 +195,6 @@ offset_left = -1290.0
 offset_top = 161.0
 offset_right = 1435.0
 offset_bottom = 2888.0
-mouse_filter = 0
 texture = ExtResource("12_45kxc")
 
 [node name="InputCatcherPanel" type="Panel" parent="GrimoireMenu"]
@@ -233,7 +218,6 @@ offset_top = -1.32001
 offset_right = -7.4801
 offset_bottom = 1.55981
 size_flags_vertical = 3
-mouse_filter = 0
 mouse_force_pass_scroll_events = false
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
@@ -245,12 +229,18 @@ theme_override_constants/h_separation = 415
 theme_override_constants/v_separation = 650
 columns = 3
 
-[node name="GridContainer2" type="GridContainer" parent="GrimoireMenu/InputCatcherPanel/ScrollContainer"]
-layout_mode = 2
-mouse_force_pass_scroll_events = false
-theme_override_constants/h_separation = 415
-theme_override_constants/v_separation = 650
-columns = 3
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 1051.0
+offset_top = 11.0
+offset_right = 2251.0
+offset_bottom = 1211.0
+scale = Vector2(0.32, 0.32)
+mouse_filter = 1
+texture_normal = ExtResource("15_6e38n")
+texture_pressed = ExtResource("15_6e38n")
+texture_hover = ExtResource("15_6e38n")
+texture_disabled = ExtResource("15_6e38n")
+texture_focused = ExtResource("15_6e38n")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Table/TableContents/Buttons UI/AddCauldron" to="." method="_on_add_cauldron_pressed" binds= [Vector2(351, 624.5)]]

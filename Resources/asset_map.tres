@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=101 format=3 uid="uid://b2o7u65q3batc"]
 
-[ext_resource type="Script" uid="uid://bihj653s5ln5h" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
+[ext_resource type="Script" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
 
 [sub_resource type="GDScript" id="GDScript_46bsj"]
 script/source = "extends Resource
@@ -11,6 +11,11 @@ script/source = "extends Resource
 [sub_resource type="Resource" id="Resource_2g7n0"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Aquarius.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_esymp"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Aquatic Breathing Elixir.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_04yvf"]
@@ -33,6 +38,21 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Bear.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_25hmc"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/BlackBaptism.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_cpeqs"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Blessing of the Siren Voice.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_3wqjd"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/BloodMirrorElixir.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_muf15"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Cancer.png"
@@ -48,6 +68,11 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/ChronoseerPotion.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_d2w1m"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Clarity.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_tj8mp"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Dog.png"
@@ -58,14 +83,39 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Dragon.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_geyjp"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/ElixirofNoReturn.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_q2epk"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/ReversedLuck.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_wcspw"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/elixiroftheNorthStar.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_nc2f0"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Energy.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_b4gys"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/FlaskofArcaneEchoes.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_rrvto"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Focus.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_u7vjh"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Fox.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_0smka"]
@@ -76,6 +126,11 @@ metadata/_custom_type_script = "uid://bihj653s5ln5h"
 [sub_resource type="Resource" id="Resource_wum2x"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Gemini.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_b88r3"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Hapiness.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_vl3vg"]
@@ -103,9 +158,24 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/LumenVial.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_c44ol"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/MemoryEraser.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_lcpmc"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Mermaid Guidance Potion.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_aws44"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/MoonlightWellspringElixir.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_bcxoa"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Ocean Wisdom Whisper.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_mfe1f"]
@@ -118,9 +188,39 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Panther.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_yej6a"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Pearlsight Elixir.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_2elkk"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Pisces.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_nhr6l"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Charisma.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_w0q8g"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofDarkIllusions.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_qu1ag"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_m5min"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_17aj3"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 3.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_ax0yt"]
@@ -128,9 +228,159 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofElementalHarmony.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_003rx"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_5a1el"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_t6lkd"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_yhken"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofForcedLove.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_amh4o"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_l31jb"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_bicx2"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_ow5df"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_f8vb4"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_kny0s"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_385op"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_7l41u"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_sxe16"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_7fie6"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_a3l05"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_im0r3"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_1bwj2"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_8lmb2"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_6y7u3"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_gt6ur"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_em603"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_7jge6"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_a7a81"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 1.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_a00s0"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 2.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_u1gpe"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 3.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_rg7cd"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of the Currents.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_1fwfe"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofUnseenWounds.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_yc8kw"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Protection.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_xrocv"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Quiet.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_cikpw"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/Rat.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_x7qa0"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Romantic Aura.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_8dqpf"]
@@ -146,6 +396,26 @@ metadata/_custom_type_script = "uid://bihj653s5ln5h"
 [sub_resource type="Resource" id="Resource_s288w"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/SigilguardBrew.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_t14t0"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Mermaid Charm.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_rne4u"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Sleep.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_rllyb"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Speed Swim Serum.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_0hqb2"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Stillwater Clarity Potion.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_dcxas"]
@@ -198,9 +468,19 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/ThreadofControlPotion.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
+[sub_resource type="Resource" id="Resource_vkv08"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/Tidebinder Elixir.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
 [sub_resource type="Resource" id="Resource_23end"]
 script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/TinctureofMinorLevitation.png"
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
+
+[sub_resource type="Resource" id="Resource_bmwk2"]
+script = ExtResource("1_2g7n0")
+image_path = "res://visuals/MainPotionMaking/Potions/Images/TongueoftheDamnedSerum.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_grf7o"]
@@ -218,289 +498,9 @@ script = ExtResource("1_2g7n0")
 image_path = "res://visuals/MainPotionMaking/Potions/Images/WheelOfFortune.png"
 metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
-[sub_resource type="Resource" id="Resource_t14t0"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Mermaid Charm.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_rllyb"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Speed Swim Serum.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_cpeqs"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Blessing of the Siren Voice.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_rg7cd"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of the Currents.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_0hqb2"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Stillwater Clarity Potion.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_bcxoa"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Ocean Wisdom Whisper.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_vkv08"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Tidebinder Elixir.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_lcpmc"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Mermaid Guidance Potion.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_yej6a"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Pearlsight Elixir.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_d2w1m"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Clarity.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_x7qa0"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Romantic Aura.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_xrocv"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Quiet.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_rrvto"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Focus.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_geyjp"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/ElixirofNoReturn.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_nhr6l"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Charisma.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_yhken"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofForcedLove.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_25hmc"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/BlackBaptism.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_w0q8g"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofDarkIllusions.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_yc8kw"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Protection.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_b88r3"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Hapiness.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_1fwfe"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/PotionofUnseenWounds.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_nc2f0"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Energy.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_rne4u"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Sleep.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_bmwk2"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/TongueoftheDamnedSerum.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_c44ol"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/MemoryEraser.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_u7vjh"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Fox.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_3wqjd"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/BloodMirrorElixir.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_q2epk"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/ReversedLuck.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_esymp"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Aquatic Breathing Elixir.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_385op"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_amh4o"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_l31jb"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_bicx2"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Hunters luck 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_em603"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_gt6ur"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_7jge6"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Multiplication 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_qu1ag"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_m5min"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_17aj3"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/echoes 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_ow5df"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_f8vb4"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_kny0s"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Insight 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_1bwj2"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_8lmb2"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_6y7u3"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Magical Power 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_a7a81"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_a00s0"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_u1gpe"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Speed 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_sxe16"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_7l41u"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Instant Harvest2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_7fie6"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_a3l05"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_im0r3"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Luck 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_003rx"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 1.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_5a1el"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 2.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
-[sub_resource type="Resource" id="Resource_t6lkd"]
-script = ExtResource("1_2g7n0")
-image_path = "res://visuals/MainPotionMaking/Potions/Images/Potion of Fertility 3.png"
-metadata/_custom_type_script = "uid://bihj653s5ln5h"
-
 [resource]
 script = SubResource("GDScript_46bsj")
-sprite_map = {
+sprite_map = Dictionary[String, ExtResource("1_2g7n0")]({
 "potion_aquarius": SubResource("Resource_2g7n0"),
 "potion_aquaticbreathingelixir": SubResource("Resource_esymp"),
 "potion_arcanemirrortonic": SubResource("Resource_04yvf"),
@@ -599,4 +599,4 @@ sprite_map = {
 "potion_unicornmagic": SubResource("Resource_grf7o"),
 "potion_virgo": SubResource("Resource_ybx5m"),
 "potion_wheeloffortune": SubResource("Resource_r33u5")
-}
+})

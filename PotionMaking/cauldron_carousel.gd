@@ -2,6 +2,7 @@ extends Control
 
 ## The node that will hold all cauldrons and slide left/right.
 @export var sliding_container: Node2D
+@export var scene_root: Node2D
 
 # --- State Variables ---
 var cauldrons: Array[Node] = []
@@ -17,7 +18,7 @@ var active_snap_tween: Tween
 
 ## The function that handles the movement of the carousel
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch and scene_root.visible == true:
 		if event.is_pressed():
 			# Start of a drag/touch
 			is_dragging = true
@@ -39,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Public function for the SceneBuilder to add cauldrons
 func add_cauldron(cauldron_node: Node) -> void:
 	# Get the height of the viewport to center the cauldron vertically.
-	var viewport_height = get_viewport().get_visible_rect().size.y
+	var viewport_height: float = get_viewport().get_visible_rect().size.y
 
 	# --- The Fix ---
 	# We now set both the X and Y positions to precisely place the cauldron.

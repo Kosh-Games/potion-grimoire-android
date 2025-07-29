@@ -3,11 +3,13 @@ extends Control
 @export var main_menu_scene: Node
 @export var brewery_scene: Node2D
 @export var garden_scene: Node2D
-@export var garden_button: Button
+@export var garden_button: TextureButton
+@export var brewery_button: TextureButton
 
 
 func _ready() -> void:
 	garden_button.connect('pressed', on_garden_button_pressed)
+	brewery_button.pressed.connect(_on_start_game_pressed)
 #	brewery_scene = scenes_to_preload['brewery']
 #	var path: String = brewery_scene.get_path()
 #	# Temporary variable for initial setup
@@ -31,7 +33,7 @@ func _ready() -> void:
 
 func _on_start_game_pressed() -> void:
 	main_menu_scene.visible = false
-	brewery_scene.visible = false
+	brewery_scene.visible = true
 	
 #	# Todo: Move the proccess higher up to specific SceneManager Node and just pass names in this function
 #	var old_scene_loaded: Node = get_node('../MainMenu')

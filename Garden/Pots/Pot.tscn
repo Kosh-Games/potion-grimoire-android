@@ -8,3 +8,5 @@ script = ExtResource("1_54v4b")
 
 [node name="PotSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_654xa")
+
+[node name="PlantSprite" type="Sprite2D" parent="."]

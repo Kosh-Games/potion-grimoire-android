@@ -15,15 +15,13 @@ var growing_ingredient_id: String
 var time_left: float = 0.0
 
 ### On-ready variables for child nodes
-@onready var sprite: Sprite2D = $Sprite2D # The main pot sprite
+@onready var pot_sprite: Sprite2D = $Potsprite # The main pot sprite
 @onready var plant_sprite: Sprite2D = $PlantSprite # A separate sprite for the plant
-@onready var collect_button: TextureButton = $CollectButton # A button for collecting
 
 func _ready():
 	## Connect the collect button's signal
-	collect_button.pressed.connect(_on_collect_pressed)
 	## Connect to the main input event for this node
-	self.input_event.connect(_on_input_event)
+#	self.input_event.connect(_on_input_event)
 
 	update_visuals()
 	
@@ -37,7 +35,7 @@ func _process(delta: float):
 			update_visuals()
 
 ## Function that is called by the SceneBuilder to set up the pot
-func initialize(server_data: Dictionary, _definition: ItemDefinition):
+func initialize(server_data: Dictionary, _definition: ItemDefinition, _resource_manager: ResourceManager):
 	self.item_id = server_data.item_id
 
 	# Set initial state based on server data
@@ -59,14 +57,11 @@ func update_visuals():
 	match current_state:
 		State.EMPTY:
 			plant_sprite.visible = false
-			collect_button.visible = false
 		State.GROWING:
 			plant_sprite.visible = true
-			collect_button.visible = false
 		# TODO: Set texture to "growing" sprite
 		State.READY_TO_COLLECT:
 			plant_sprite.visible = true
-			collect_button.visible = true
 # TODO: Set texture to "grown" sprite
 
 # This handles when the pot itself is clicked

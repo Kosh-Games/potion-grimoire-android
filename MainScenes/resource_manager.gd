@@ -100,7 +100,13 @@ func on_item_types_received(data: Array):
 		res.type_id = item_data["id"]
 		res.item_name = item_data["name"]
 		res.max_level = item_data["max_level"]
-		res.area = item_data["area"]
+		match item_data["area"]:
+			"Garden":
+				res.area = Enums.ItemTypeArea.Garden
+			"Brewery":
+				res.area = Enums.ItemTypeArea.Brewery
+			"Cars":
+				res.area = Enums.ItemTypeArea.Cats
 		# IMPORTANT: You still need to map the name to a local scene file
 		# res.scene = load("res://scenes/items/" + res.item_name + ".tscn")
 		item_types[res.type_id] = res

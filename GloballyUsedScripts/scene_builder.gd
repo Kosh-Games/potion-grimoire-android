@@ -43,7 +43,7 @@ func _on_user_items_received(data: Array):
 		# Step 4: Initialize the new instance with ALL the data it needs
 		if new_item_instance.has_method("initialize"):
 			# We pass both the server data and the local definition
-			new_item_instance.initialize(item_data, definition, ResourceManager)
+#			new_item_instance.initialize(item_data, definition, ResourceManager)
 			print('the instance is initialised')
 			print(item_type.area)
 
@@ -56,8 +56,9 @@ func _on_user_items_received(data: Array):
 				else:
 					printerr("Cauldron Carousel is not set up correctly in SceneBuilder!")
 			Enums.ItemTypeArea.Garden:
-				garden_container.add_child(new_item_instance)
-			Enums.ItemTypeArea.Garden:
+				pass
+#				garden_container.add_child(new_item_instance)
+			Enums.ItemTypeArea.Cats:
 				cats_container.add_child(new_item_instance)
 			_:
 				printerr("Cannot place item '%s'. Unknown area: %s" % [item_type.item_name, item_type.area])
@@ -65,7 +66,7 @@ func _on_user_items_received(data: Array):
 func clear_existing_items():
 	for child in brewery_container.get_children():
 		child.queue_free()
-	for child in garden_container.get_children():
-		child.queue_free()
+#	for child in garden_container.get_children():
+#		child.queue_free()
 	for child in cats_container.get_children():
 		child.queue_free()
