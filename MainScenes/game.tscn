@@ -31,9 +31,10 @@ size_flags_vertical = 6
 brewery_scene = NodePath("../MainPotionMaking")
 garden_scene = NodePath("../Garden")
 
-[node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "cats_container", "cauldron_carousel", "ResourceManager")]
+[node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "garden", "cats_container", "cauldron_carousel", "ResourceManager")]
 script = ExtResource("3_b70xl")
 brewery_container = NodePath("../MainPotionMaking/Table/TableContents/SubViewportContainer/SubViewport/Cauldrons/CauldronContainer")
+garden = NodePath("../Garden")
 cats_container = NodePath("../CatsBar/CatsContainer")
 cauldron_carousel = NodePath("../MainPotionMaking/Table/TableContents")
 ResourceManager = NodePath("../ResourceManager")

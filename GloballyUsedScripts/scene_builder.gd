@@ -2,7 +2,7 @@ extends Node
 
 # You'll need to assign these container nodes from your main scene in the editor
 @export var brewery_container: Node
-@export var garden_container: Node
+@export var garden: Node
 @export var cats_container: Node
 
 @export var cauldron_carousel: Node
@@ -42,8 +42,7 @@ func _on_user_items_received(data: Array):
 
 		# Step 4: Initialize the new instance with ALL the data it needs
 		if new_item_instance.has_method("initialize"):
-			# We pass both the server data and the local definition
-#			new_item_instance.initialize(item_data, definition, ResourceManager)
+			new_item_instance.initialize(item_data, definition, ResourceManager)
 			print('the instance is initialised')
 			print(item_type.area)
 
@@ -56,8 +55,7 @@ func _on_user_items_received(data: Array):
 				else:
 					printerr("Cauldron Carousel is not set up correctly in SceneBuilder!")
 			Enums.ItemTypeArea.Garden:
-				pass
-#				garden_container.add_child(new_item_instance)
+				garden.place_pot(new_item_instance, item_data["display_index"])
 			Enums.ItemTypeArea.Cats:
 				cats_container.add_child(new_item_instance)
 			_:

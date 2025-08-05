@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://kak15t0agvt8" path="res://Garden/Pots/pot.gd" id="1_54v4b"]
 [ext_resource type="Texture2D" uid="uid://cb17rx6d6wg7k" path="res://visuals/Garden/Pots/Pot.png" id="1_654xa"]
 
-[node name="Pot" type="Node2D"]
+[node name="Pot" type="Node2D" node_paths=PackedStringArray("pot_sprite", "plant_sprite")]
 script = ExtResource("1_54v4b")
+pot_sprite = NodePath("PotSprite")
+plant_sprite = NodePath("PlantSprite")
 
 [node name="PotSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_654xa")
 
 [node name="PlantSprite" type="Sprite2D" parent="."]

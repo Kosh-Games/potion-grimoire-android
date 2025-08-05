@@ -75,3 +75,18 @@ func kill_snap_tween() -> void:
 func back_to_menu():
 	self.visible = false
 	menu.visible = true
+
+	
+## Public Function that ResourceBuilder uses to add pots
+func place_pot(pot: Node, display_index: int) -> void:
+	var room_node: Node2D
+	if display_index < 10:
+		room_node = sliding_container.get_child(0)
+	elif display_index < 20:
+		room_node = sliding_container.get_child(1)
+	elif display_index < 30:
+		room_node = sliding_container.get_child(2)
+	else:
+		room_node = sliding_container.get_child(3)
+	print("Placing the pot in the %d", room_node.name)
+	room_node.place_pot_in_slot(pot, display_index)

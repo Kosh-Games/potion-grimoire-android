@@ -15,8 +15,8 @@ var growing_ingredient_id: String
 var time_left: float = 0.0
 
 ### On-ready variables for child nodes
-@onready var pot_sprite: Sprite2D = $Potsprite # The main pot sprite
-@onready var plant_sprite: Sprite2D = $PlantSprite # A separate sprite for the plant
+@export var pot_sprite: Sprite2D ## The main pot sprite
+@export var plant_sprite: Sprite2D ## A separate sprite for the plant
 
 func _ready():
 	## Connect the collect button's signal

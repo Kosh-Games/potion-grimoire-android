@@ -8,4 +8,3 @@ script = ExtResource("1_mpv8c")
 item_type_id = "8159aa84-2f0a-484a-9b1c-cfeef02a409b"
 scene = ExtResource("1_h6u2i")
 custom_properties = {}
-metadata/_custom_type_script = "uid://otvq8rdc1bjt"
