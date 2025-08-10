@@ -19,7 +19,7 @@ func _ready():
 	pot_slots.resize(pot_slot_positions.size())
 	
 	if not is_unlocked:
-		lock_room()
+		_lock_room()
 
 ## This public function will be called by the SceneBuilder to place a pot.
 func place_pot_in_slot(pot_node: Node, slot_index: int) -> void:
@@ -56,5 +56,5 @@ func unlock_room():
 	print('Room is unlocked')
 	
 	
-func lock_room():
+func _lock_room():
 	print("Room is locked")
