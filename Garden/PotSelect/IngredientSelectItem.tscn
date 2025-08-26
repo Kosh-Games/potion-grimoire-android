@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcm0aue6x21bf"]
+
+[ext_resource type="Script" uid="uid://bx34ko5fr2t7n" path="res://Garden/PotSelect/ingredient_select_item.gd" id="1_7tv3x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hre3t"]
+font_size = 49
+outline_size = 4
+
+[node name="IngredientSelectItem" type="Panel"]
+mouse_filter = 1
+script = ExtResource("1_7tv3x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 400.0
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 400.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 400.0
+offset_bottom = 478.0
+mouse_filter = 1
+label_settings = SubResource("LabelSettings_hre3t")

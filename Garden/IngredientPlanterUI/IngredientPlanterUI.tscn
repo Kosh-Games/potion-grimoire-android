@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://u8kxowegw2j6"]
+
+[ext_resource type="Script" uid="uid://cscf3vj7xdxlo" path="res://Garden/IngredientPlanterUI/ingredient_planter_ui.gd" id="1_wk0m3"]
+
+[node name="IngredientPlanterUi" type="CanvasLayer"]
+script = ExtResource("1_wk0m3")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InputCatcherPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.0156863)
+offset_right = 1440.0
+offset_bottom = 3120.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InputCatcherPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="InputCatcherPanel/ScrollContainer"]
+layout_mode = 2

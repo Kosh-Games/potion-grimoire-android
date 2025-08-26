@@ -37,15 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		sliding_container.position.x = drag_start_x + drag_accumulated_x
 
 ## Public function for the SceneBuilder to add cauldrons
-## Public function for the SceneBuilder to add cauldrons
-func add_cauldron(cauldron_node: Node) -> void:
-	# Get the height of the viewport to center the cauldron vertically.
-	var viewport_height: float = get_viewport().get_visible_rect().size.y
-
-	# --- The Fix ---
-	# We now set both the X and Y positions to precisely place the cauldron.
-	# The X position places it horizontally in the sequence.
-	# The Y position centers it vertically within the viewport.
+func add_cauldron(cauldron_node: Node) -> void:	
 	var new_position: Vector2 = Vector2(
 						   cauldrons.size() * cauldron_width,
 						   0
@@ -66,14 +58,13 @@ func snap_to_closest_cauldron() -> void:
 	if abs(drag_accumulated_x) > SWIPE_THRESHOLD:
 		if drag_accumulated_x < 0:
 			# Swiped left, go to next
-			current_index = min(current_index + 1, cauldrons.size() - 1)
+			current_index = min(current_index + 1, maxi(cauldrons.size() - 1, 0))
 		else:
 			# Swiped right, go to previous
 			current_index = max(current_index - 1, 0)
 
 	# Calculate the target position
 	var target_x: float = (-current_index * cauldron_width)
-	print(target_x)
 
 	active_snap_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	active_snap_tween.tween_property(sliding_container, "position:x", target_x, 0.25)

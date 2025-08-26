@@ -13,9 +13,10 @@ func _ready():
 	SignalBus.user_items_received.connect(_on_user_items_received)
 
 func _on_user_items_received(data: Array):
-	print("SceneBuilder received user items. Building scenes...")
 
 	clear_existing_items()
+	data.sort_custom(func(a, b): return a.get("display_index") < b.get("display_index"))
+	print("SceneBuilder received and sorted user items. Building scene...")
 
 	for item_data in data:
 		# Step 1: Get the server-defined properties for this type

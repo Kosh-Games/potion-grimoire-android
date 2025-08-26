@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4gwraj44qlju"]
+[gd_scene load_steps=17 format=3 uid="uid://c4gwraj44qlju"]
 
 [ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
 [ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://nrv8un1uk7sq" path="res://PotionMaking/PotionSelect/grimoire_menu.gd" id="10_r6m5x"]
 [ext_resource type="PackedScene" uid="uid://dxygxdrher51i" path="res://PotionMaking/PotionSelect/PotionSelectItem.tscn" id="11_45kxc"]
 [ext_resource type="Texture2D" uid="uid://eibwrtsx2rh0" path="res://visuals/MainPotionMaking/New/Book.png" id="11_qm6lt"]
+[ext_resource type="BitMap" uid="uid://q3y1gpmdtgss" path="res://visuals/MainPotionMaking/New/Book_mask.bmp" id="12_6e38n"]
 [ext_resource type="Texture2D" uid="uid://beeqamnwpmk45" path="res://visuals/MainPotionMaking/book/книга copy.png" id="12_45kxc"]
 [ext_resource type="Texture2D" uid="uid://ca6hsarjsgxnj" path="res://visuals/TEMP/—Pngtree—game button return button icon_5320505.png" id="15_6e38n"]
 
@@ -180,6 +181,7 @@ texture_normal = ExtResource("11_qm6lt")
 texture_pressed = ExtResource("11_qm6lt")
 texture_hover = ExtResource("11_qm6lt")
 texture_focused = ExtResource("11_qm6lt")
+texture_click_mask = ExtResource("12_6e38n")
 metadata/_edit_use_anchors_ = true
 
 [node name="GrimoireMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("item_list_container", "grimoire_button", "cauldron_carousel")]
