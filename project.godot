@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="Witch potions mobile"
-config/version="0.0.1"
+config/version="0.0.2"
 run/main_scene="uid://bcmdwrhgjgnij"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
@@ -41,8 +41,8 @@ GodotPlayGameServices="*res://addons/GodotPlayGameServices/scripts/autoloads/god
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1560
+window/size/viewport_width=1440
+window/size/viewport_height=3120
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1

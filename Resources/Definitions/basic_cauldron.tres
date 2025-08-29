@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemDefinition" load_steps=3 format=3 uid="uid://bkojwrjh5vj3n"]
 
-[ext_resource type="Script" uid="uid://otvq8rdc1bjt" path="res://Resources/Definitions/item_definition.gd" id="1_72nup"]
+[ext_resource type="Script" path="res://Resources/Definitions/item_definition.gd" id="1_72nup"]
 [ext_resource type="PackedScene" uid="uid://cc1sqlrkpbmai" path="res://PotionMaking/Cauldron/Cauldron.tscn" id="1_ep16f"]
 
 [resource]
