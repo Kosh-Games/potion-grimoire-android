@@ -1,5 +1,32 @@
-[gd_scene format=3 uid="uid://8fq0icjjvgp4"]
+[gd_scene load_steps=5 format=3 uid="uid://8fq0icjjvgp4"]
+
+[ext_resource type="Texture2D" uid="uid://chjvyttf35n3y" path="res://visuals/CarBar/Untitled_Artwork-1.png" id="1_5xc6u"]
+[ext_resource type="Texture2D" uid="uid://ceqebh1d8tfkk" path="res://visuals/CarBar/Untitled_Artwork-2.png" id="2_ws2bd"]
+[ext_resource type="Texture2D" uid="uid://c5ubt0p4vfbc3" path="res://visuals/CarBar/Untitled_Artwork-8.png" id="3_s71b5"]
+[ext_resource type="Texture2D" uid="uid://ds8pcu6bycuhr" path="res://visuals/CarBar/Untitled_Artwork-3.png" id="4_0dmei"]
 
 [node name="CatsBar" type="Node2D"]
 
 [node name="CatsContainer" type="Node2D" parent="."]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Visuals"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5xc6u")
+
+[node name="Floor" type="TextureRect" parent="Visuals"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ws2bd")
+
+[node name="Door" type="TextureRect" parent="Visuals"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_s71b5")
+
+[node name="Bar" type="TextureRect" parent="Visuals"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_0dmei")
