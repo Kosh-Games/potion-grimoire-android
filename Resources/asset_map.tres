@@ -1,9 +1,9 @@
 [gd_resource type="Resource" load_steps=106 format=3 uid="uid://b2o7u65q3batc"]
 
-[ext_resource type="Script" uid="uid://bihj653s5ln5h" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
-[ext_resource type="Texture2D" uid="uid://c41uq5cb3n73x" path="res://visuals/Garden/Ingredients/Garden ingredients/Common/Clover.png" id="2_1ir4e"]
-[ext_resource type="Script" uid="uid://gun70mno0w7v" path="res://Resources/Definitions/ingredient_art_definition.gd" id="3_w1xrf"]
-[ext_resource type="Texture2D" uid="uid://bfri3im3mor7" path="res://visuals/Garden/Ingredients/Garden final growing stage/Common/Clover_Small.png" id="4_muf15"]
+[ext_resource type="Script" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
+[ext_resource type="Texture2D" uid="uid://c37xno1hfs00" path="res://visuals/Garden/Ingredients/Garden ingredients/Common/Clover.png" id="2_1ir4e"]
+[ext_resource type="Script" path="res://Resources/Definitions/ingredient_art_definition.gd" id="3_w1xrf"]
+[ext_resource type="Texture2D" uid="uid://bouayhj6xct5e" path="res://visuals/Garden/Ingredients/Garden final growing stage/Common/Clover_Small.png" id="4_muf15"]
 
 [sub_resource type="GDScript" id="GDScript_46bsj"]
 script/source = "extends Resource
