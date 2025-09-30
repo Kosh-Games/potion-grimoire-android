@@ -7,7 +7,7 @@ enum Rarity {
 }
 	
 enum ItemTypeArea {
-	Brewery,
 	Garden,
-	Cats
+	Cats,
+	Brewery
 }

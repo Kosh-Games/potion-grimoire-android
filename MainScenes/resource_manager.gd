@@ -1,3 +1,4 @@
+class_name ResourceManager
 extends Node
 
 @export var asset_map: Resource
@@ -61,34 +62,34 @@ func start_loading_sequence(user_id):
 
 func fetch_item_types():
 	print("Fetching all item types...")
-	NetworkManagerGlobal.get_request("/items/", {"type": "fetch_item_types"})
+	NetworkManager.get_request("/items/", {"type": "fetch_item_types"})
 
 func fetch_user_items(user_id: String):
 	print('Fetching user items...')
 	var endpoint: String = "/items/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "fetch_user_items"})
+	NetworkManager.get_request(endpoint, {"type": "fetch_user_items"})
 
 func fetch_ingredients():
 	print('Fetching all ingredients...')
-	NetworkManagerGlobal.get_request("/ingredients/", {"type": "get_ingredients"})
+	NetworkManager.get_request("/ingredients/", {"type": "get_ingredients"})
 
 func fetch_user_ingredients(user_id: String):
 	print('Fetching user ingredients...')
 	var endpoint: String = "/ingredients/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "get_user_ingredients"})
+	NetworkManager.get_request(endpoint, {"type": "get_user_ingredients"})
 
 func fetch_potions():
 	print('Fetching all potions...')
-	NetworkManagerGlobal.get_request("/potions/", {"type": "get_potions"})
+	NetworkManager.get_request("/potions/", {"type": "get_potions"})
 
 func fetch_user_potions(user_id: String):
 	print('Fetching user potions...')
 	var endpoint: String = "/potions/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "get_user_potions"})
+	NetworkManager.get_request(endpoint, {"type": "get_user_potions"})
 
 func fetch_recipes():
 	print('Fetching all recipes...')
-	NetworkManagerGlobal.get_request("/potions/recipes", {"type": "get_recipes"})
+	NetworkManager.get_request("/potions/recipes", {"type": "get_recipes"})
 
 
 # --- On Data Received Functions (These also remain unchanged) ---
@@ -99,7 +100,13 @@ func on_item_types_received(data: Array):
 		res.type_id = item_data["id"]
 		res.item_name = item_data["name"]
 		res.max_level = item_data["max_level"]
-		res.area = item_data["area"]
+		match item_data["area"]:
+			"Garden":
+				res.area = Enums.ItemTypeArea.Garden
+			"Brewery":
+				res.area = Enums.ItemTypeArea.Brewery
+			"Cars":
+				res.area = Enums.ItemTypeArea.Cats
 		# IMPORTANT: You still need to map the name to a local scene file
 		# res.scene = load("res://scenes/items/" + res.item_name + ".tscn")
 		item_types[res.type_id] = res
@@ -113,7 +120,12 @@ func on_ingredients_received(data: Array):
 		res.item_name = item_data["name"]
 		res.rarity = item_data["rarity"]
 		res.area = item_data["area"]
-#		res.asset_key = item_data.get("asset_key", "") # Use .get for optional keys
+		var asset_key = item_data.get("asset_key", "")
+		if not asset_key.is_empty():
+			if asset_map.sprite_map.has(asset_key):
+				res.art_resource = asset_map.sprite_map[asset_key].ingredient_resource
+			else:
+				printerr("THERE IS NO ASSET FOR THE INGREDIENT %s" % asset_key)
 		ingredients[res.id] = res
 	print("Processed %d ingredients." % ingredients.size())
 
@@ -125,15 +137,12 @@ func on_potions_received(data: Array):
 		res.item_name = item_data["name"]
 		res.rarity = item_data["rarity"]
 		res.collection_id = item_data["collection_id"]
-
-		# --- NEW LOGIC HERE ---
+		
 		var asset_key = item_data.get("asset_key", "")
 		if not asset_key.is_empty():
 			if asset_map.sprite_map.has(asset_key):
-				# If the key exists in our map, load the texture
-				res.icon = load(asset_map.sprite_map[asset_key])
+				res.icon = load(asset_map.sprite_map[asset_key].image_path)
 			else:
-				# As requested, print an error if the key is not found
 				printerr("Asset key '%s' for potion '%s' not found in asset_map.tres." % [asset_key, res.item_name])
 
 		potions[res.id] = res
@@ -182,7 +191,7 @@ func on_user_items_received(data: Array):
 func on_user_ingredients_received(data: Array):
 	for item_data in data:
 		var item_type: IngredientResource = get_ingredient(item_data.ingredient_id)
-		print("Player has potion: ", item_type.item_name)
+		print("Player has ingredient: ", item_type.item_name)
 
 
 func on_user_potions_received(data: Array):

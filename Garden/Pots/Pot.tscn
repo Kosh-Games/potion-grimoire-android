@@ -1,8 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2med2pdde2v3"]
+[gd_scene load_steps=4 format=3 uid="uid://c2med2pdde2v3"]
 
+[ext_resource type="Script" uid="uid://kak15t0agvt8" path="res://Garden/Pots/pot.gd" id="1_54v4b"]
 [ext_resource type="Texture2D" uid="uid://cb17rx6d6wg7k" path="res://visuals/Garden/Pots/Pot.png" id="1_654xa"]
 
-[node name="Pot" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_54v4b"]
+font_size = 60
+outline_size = 1
+
+[node name="Pot" type="Area2D" node_paths=PackedStringArray("pot_sprite", "plant_sprite", "timer_label")]
+script = ExtResource("1_54v4b")
+pot_sprite = NodePath("PotSprite")
+plant_sprite = NodePath("PlantSprite")
+timer_label = NodePath("TimerLabel")
 
 [node name="PotSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_654xa")
+
+[node name="PlantSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -275.285)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-105, 130, -131, -20, -147, -33, -159, -105, -149, -130, -126, -143, -88, -153, -60, -161, -16, -164, 15, -160, 60, -161, 96, -157, 125, -145, 149, -134, 157, -114, 158, -91, 156, -62, 148, -41, 134, -23, 99, 129, 67, 150, 40, 157, 1, 160, -41, 156, -76, 150)
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = -155.0
+offset_top = -553.245
+offset_right = 156.0
+offset_bottom = -448.245
+label_settings = SubResource("LabelSettings_54v4b")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -5,5 +5,5 @@ extends Resource
 @export var item_name: String
 @export var area: Enums.ItemTypeArea
 @export var asset_key: String
-@export var icon: Texture2D
+@export var art_resource: IngredientArtDefinition
 @export var rarity: Enums.Rarity

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://u8kxowegw2j6"]
+
+[ext_resource type="Script" uid="uid://cscf3vj7xdxlo" path="res://Garden/IngredientPlanterUI/ingredient_planter_ui.gd" id="1_wk0m3"]
+[ext_resource type="PackedScene" uid="uid://bcm0aue6x21bf" path="res://Garden/PotSelect/IngredientSelectItem.tscn" id="2_q5mst"]
+[ext_resource type="Texture2D" uid="uid://7nhtyxm3x2m6" path="res://visuals/UI/scroll.PNG" id="3_f0fx8"]
+[ext_resource type="Texture2D" uid="uid://ca6hsarjsgxnj" path="res://visuals/TEMP/—Pngtree—game button return button icon_5320505.png" id="4_28n8b"]
+
+[node name="IngredientPlanterUi" type="CanvasLayer" node_paths=PackedStringArray("grid_container", "back_button")]
+script = ExtResource("1_wk0m3")
+item_scene = ExtResource("2_q5mst")
+grid_container = NodePath("InputCatcherPanel/ScrollContainer/GridContainer")
+back_button = NodePath("BackButton")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -779.0
+offset_top = -2415.0
+offset_right = 2212.0
+offset_bottom = 5236.0
+texture = ExtResource("3_f0fx8")
+
+[node name="InputCatcherPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.0156863)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InputCatcherPanel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 948.0
+offset_right = 1361.0
+offset_bottom = 2377.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="InputCatcherPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 438
+theme_override_constants/v_separation = 540
+columns = 3
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 996.0
+offset_top = 315.0
+offset_right = 2196.0
+offset_bottom = 1515.0
+scale = Vector2(0.32, 0.32)
+mouse_filter = 1
+texture_normal = ExtResource("4_28n8b")
+texture_pressed = ExtResource("4_28n8b")
+texture_hover = ExtResource("4_28n8b")
+texture_disabled = ExtResource("4_28n8b")
+texture_focused = ExtResource("4_28n8b")

@@ -24,29 +24,33 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="Witch potions mobile"
-config/version="0.0.2"
+config/version="0.0.3"
 run/main_scene="uid://bcmdwrhgjgnij"
-config/features=PackedStringArray("4.4", "Mobile")
+run/print_header=false
+config/features=PackedStringArray("4.5", "Mobile")
+run/max_fps=120
 config/icon="res://icon.svg"
 
 [autoload]
 
 uuid="*res://addons/uuid/uuid.gd"
-NetworkManagerGlobal="*res://GloballyUsedScripts/network_manager.gd"
+NetworkManager="*res://GloballyUsedScripts/network_manager.gd"
 SignalBus="*res://GloballyUsedScripts/signal_bus.gd"
 Enums="*res://GloballyUsedScripts/Enums.gd"
 PlayerData="*res://GloballyUsedScripts/player_data.gd"
 GameDefinitions="*res://GloballyUsedScripts/game_definitions.gd"
 GodotPlayGameServices="*res://addons/GodotPlayGameServices/scripts/autoloads/godot_play_game_services.gd"
+StateManager="*res://GloballyUsedScripts/state_manager.gd"
 
 [display]
 
 window/size/viewport_width=1440
 window/size/viewport_height=3120
-window/size/borderless=true
-window/stretch/mode="canvas_items"
+window/size/resizable=false
+window/stretch/mode="viewport"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
+window/max_fps=120
 
 [editor_plugins]
 

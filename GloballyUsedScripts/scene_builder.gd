@@ -2,7 +2,7 @@ extends Node
 
 # You'll need to assign these container nodes from your main scene in the editor
 @export var brewery_container: Node
-@export var garden_container: Node
+@export var garden: Node
 @export var cats_container: Node
 
 @export var cauldron_carousel: Node
@@ -13,9 +13,10 @@ func _ready():
 	SignalBus.user_items_received.connect(_on_user_items_received)
 
 func _on_user_items_received(data: Array):
-	print("SceneBuilder received user items. Building scenes...")
 
 	clear_existing_items()
+	data.sort_custom(func(a, b): return a.get("display_index") < b.get("display_index"))
+	print("SceneBuilder received and sorted user items. Building scene...")
 
 	for item_data in data:
 		# Step 1: Get the server-defined properties for this type
@@ -42,7 +43,6 @@ func _on_user_items_received(data: Array):
 
 		# Step 4: Initialize the new instance with ALL the data it needs
 		if new_item_instance.has_method("initialize"):
-			# We pass both the server data and the local definition
 			new_item_instance.initialize(item_data, definition, ResourceManager)
 			print('the instance is initialised')
 			print(item_type.area)
@@ -56,8 +56,8 @@ func _on_user_items_received(data: Array):
 				else:
 					printerr("Cauldron Carousel is not set up correctly in SceneBuilder!")
 			Enums.ItemTypeArea.Garden:
-				garden_container.add_child(new_item_instance)
-			Enums.ItemTypeArea.Garden:
+				garden.place_pot(new_item_instance, item_data["display_index"])
+			Enums.ItemTypeArea.Cats:
 				cats_container.add_child(new_item_instance)
 			_:
 				printerr("Cannot place item '%s'. Unknown area: %s" % [item_type.item_name, item_type.area])
@@ -65,7 +65,7 @@ func _on_user_items_received(data: Array):
 func clear_existing_items():
 	for child in brewery_container.get_children():
 		child.queue_free()
-	for child in garden_container.get_children():
-		child.queue_free()
+#	for child in garden_container.get_children():
+#		child.queue_free()
 	for child in cats_container.get_children():
 		child.queue_free()

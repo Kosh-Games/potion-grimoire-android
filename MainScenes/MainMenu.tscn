@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://k4bj6ngaj7ng"]
+[gd_scene load_steps=11 format=3 uid="uid://k4bj6ngaj7ng"]
 
 [ext_resource type="StyleBox" uid="uid://2in0nmhh5q4l" path="res://new_style_box_flat_2.tres" id="1_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://dh2xjjurq0aoh" path="res://Untitled 3.png" id="2_h7a2f"]
 [ext_resource type="StyleBox" uid="uid://bf48s10h6bxhy" path="res://new_style_box_flat_pressed.tres" id="2_qoqlk"]
 [ext_resource type="Script" uid="uid://cu3ief4hj7bpq" path="res://MainScenes/main_menu.gd" id="3_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://b7tq1gmtxv6j1" path="res://visuals/Menu/background-buildings.png" id="4_ffcpw"]
+[ext_resource type="Texture2D" uid="uid://cmkh1uiduxsgy" path="res://visuals/Menu/shop-building.png" id="5_pq6p2"]
+[ext_resource type="Texture2D" uid="uid://c5jbrxfe18rmt" path="res://visuals/Menu/bounty-building.png" id="6_fghas"]
+[ext_resource type="Texture2D" uid="uid://dpqlshlln7m7m" path="res://visuals/Menu/brewery-building.png" id="7_pnujl"]
+[ext_resource type="Texture2D" uid="uid://gb7w6nfrgjvh" path="res://visuals/Menu/garden-building.png" id="8_h7vvw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwfq2"]
 
@@ -14,78 +18,75 @@ Button/styles/hover = ExtResource("1_eiy7p")
 Button/styles/normal = ExtResource("1_eiy7p")
 Button/styles/pressed = ExtResource("2_qoqlk")
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_menu_scene", "garden_button")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("main_menu_scene", "garden_button", "brewery_button", "bar_button", "shop_button")]
 layout_mode = 3
-anchor_left = 0.327
-anchor_top = 0.334
-anchor_right = 0.723
-anchor_bottom = 0.666
-offset_left = -235.44
-offset_top = -427.52
-offset_right = 199.44
-offset_bottom = 427.52
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+anchor_right = 1.0
+anchor_bottom = 0.962
+offset_top = -6.10352e-05
+offset_bottom = 118.56
 theme = SubResource("Theme_qoqlk")
 script = ExtResource("3_qoqlk")
 main_menu_scene = NodePath(".")
-garden_button = NodePath("NinePatchRect/VBoxContainer/Garden")
+garden_button = NodePath("Garden")
+brewery_button = NodePath("Brewery")
+bar_button = NodePath("Bar")
+shop_button = NodePath("Shop")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -217.0
-offset_right = 190.0
-offset_bottom = 217.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_h7a2f")
-region_rect = Rect2(27.377, 27.9346, 44.1304, 43.8118)
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(720, 1500)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_ffcpw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.5
-offset_top = -172.0
-offset_right = 139.5
-offset_bottom = 172.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 12
-alignment = 1
+[node name="Shop" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 2.000001
+offset_top = 377.00006
+offset_right = 1161.0
+offset_bottom = 1686.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("5_pq6p2")
+texture_pressed = ExtResource("5_pq6p2")
+texture_hover = ExtResource("5_pq6p2")
+texture_disabled = ExtResource("5_pq6p2")
+texture_focused = ExtResource("5_pq6p2")
 
-[node name="Brewery" type="Button" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Brewery"
+[node name="Bar" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 44.2
+offset_top = 1301.825
+offset_right = 978.2
+offset_bottom = 2427.8252
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("6_fghas")
+texture_pressed = ExtResource("6_fghas")
+texture_hover = ExtResource("6_fghas")
+texture_disabled = ExtResource("6_fghas")
+texture_focused = ExtResource("6_fghas")
 
-[node name="Garden" type="Button" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Garden"
+[node name="Brewery" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 657.0
+offset_right = 1664.0
+offset_bottom = 1985.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("7_pnujl")
+texture_pressed = ExtResource("7_pnujl")
+texture_hover = ExtResource("7_pnujl")
+texture_disabled = ExtResource("7_pnujl")
+texture_focused = ExtResource("7_pnujl")
+stretch_mode = 4
 
-[node name="Shop" type="Button" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Shop"
-
-[node name="Exit" type="Button" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Exit"
-
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Brewery" to="." method="_on_start_game_pressed"]
+[node name="Garden" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 1875.0
+offset_right = 1638.0
+offset_bottom = 3081.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("8_h7vvw")
+texture_pressed = ExtResource("8_h7vvw")
+texture_hover = ExtResource("8_h7vvw")
+texture_disabled = ExtResource("8_h7vvw")
+texture_focused = ExtResource("8_h7vvw")
+stretch_mode = 4
