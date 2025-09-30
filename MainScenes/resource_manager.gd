@@ -62,34 +62,34 @@ func start_loading_sequence(user_id):
 
 func fetch_item_types():
 	print("Fetching all item types...")
-	NetworkManagerGlobal.get_request("/items/", {"type": "fetch_item_types"})
+	NetworkManager.get_request("/items/", {"type": "fetch_item_types"})
 
 func fetch_user_items(user_id: String):
 	print('Fetching user items...')
 	var endpoint: String = "/items/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "fetch_user_items"})
+	NetworkManager.get_request(endpoint, {"type": "fetch_user_items"})
 
 func fetch_ingredients():
 	print('Fetching all ingredients...')
-	NetworkManagerGlobal.get_request("/ingredients/", {"type": "get_ingredients"})
+	NetworkManager.get_request("/ingredients/", {"type": "get_ingredients"})
 
 func fetch_user_ingredients(user_id: String):
 	print('Fetching user ingredients...')
 	var endpoint: String = "/ingredients/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "get_user_ingredients"})
+	NetworkManager.get_request(endpoint, {"type": "get_user_ingredients"})
 
 func fetch_potions():
 	print('Fetching all potions...')
-	NetworkManagerGlobal.get_request("/potions/", {"type": "get_potions"})
+	NetworkManager.get_request("/potions/", {"type": "get_potions"})
 
 func fetch_user_potions(user_id: String):
 	print('Fetching user potions...')
 	var endpoint: String = "/potions/%s" % user_id
-	NetworkManagerGlobal.get_request(endpoint, {"type": "get_user_potions"})
+	NetworkManager.get_request(endpoint, {"type": "get_user_potions"})
 
 func fetch_recipes():
 	print('Fetching all recipes...')
-	NetworkManagerGlobal.get_request("/potions/recipes", {"type": "get_recipes"})
+	NetworkManager.get_request("/potions/recipes", {"type": "get_recipes"})
 
 
 # --- On Data Received Functions (These also remain unchanged) ---

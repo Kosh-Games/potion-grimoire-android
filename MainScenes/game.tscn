@@ -14,7 +14,7 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_c234f")
 
-[node name="MainMenu" parent="." node_paths=PackedStringArray("brewery_scene", "garden_scene") instance=ExtResource("2_o3s8j")]
+[node name="MainMenu" parent="." node_paths=PackedStringArray("brewery_scene", "garden_scene", "bar_scene", "shop_scene") instance=ExtResource("2_o3s8j")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,6 +30,8 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 brewery_scene = NodePath("../MainPotionMaking")
 garden_scene = NodePath("../Garden")
+bar_scene = NodePath("../CatsBar")
+shop_scene = NodePath("../Shop")
 
 [node name="SceneBuilder" type="Node" parent="." node_paths=PackedStringArray("brewery_container", "garden", "cats_container", "cauldron_carousel", "ResourceManager")]
 script = ExtResource("3_b70xl")
@@ -65,8 +67,14 @@ ResourceManager = NodePath("../../ResourceManager")
 visible = false
 menu = NodePath("../MainMenu")
 
+[node name="IngredientPlanterUi" parent="Garden" index="1" node_paths=PackedStringArray("ResourceManager")]
+visible = false
+ResourceManager = NodePath("../../ResourceManager")
+
 [node name="CatsBar" parent="." instance=ExtResource("8_bmphd")]
 visible = false
+
+[node name="Shop" type="Node2D" parent="."]
 
 [editable path="MainPotionMaking"]
 [editable path="Garden"]

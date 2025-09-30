@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemDefinition" load_steps=3 format=3 uid="uid://bpai6fwdwjyuv"]
 
 [ext_resource type="PackedScene" uid="uid://c2med2pdde2v3" path="res://Garden/Pots/Pot.tscn" id="1_h6u2i"]
-[ext_resource type="Script" path="res://Resources/Definitions/item_definition.gd" id="1_mpv8c"]
+[ext_resource type="Script" uid="uid://otvq8rdc1bjt" path="res://Resources/Definitions/item_definition.gd" id="1_mpv8c"]
 
 [resource]
 script = ExtResource("1_mpv8c")

@@ -23,6 +23,7 @@ func _ready():
 
 	# We will also need a signal for when collection is confirmed by the server
 	SignalBus.item_collected.connect(_on_item_collected)
+	
 	update_visual_state()
 
 func _process(delta: float):
@@ -30,9 +31,10 @@ func _process(delta: float):
 		time_left -= delta
 		timer_label.text = "Time: %d" % int(time_left)
 		if time_left <= 0:
-			is_brewing = false
-			# The server will be the source of truth, but we can update UI for responsiveness.
-			update_visual_state()
+			SignalBus.emit_signal("request_single_item_update", self.item_id)
+#			is_brewing = false
+#			# The server will be the source of truth, but we can update UI for responsiveness.
+#			update_visual_state()
 
 # This is called by the SceneBuilder when the cauldron is first created.
 func initialize(server_data: Dictionary, definition: ItemDefinition, resource_manager: Node):
@@ -51,20 +53,15 @@ func update_state_from_data(data: Dictionary):
 	self.level = data.get("level", 1) # Use .get for safety
 
 	var timer_data = data.get("timer")
-	if timer_data and timer_data is Dictionary:
-		self.is_brewing = not timer_data.get("is_finished", true)
+	if timer_data is Dictionary:
+		self.is_brewing = not timer_data.get("is_finished", false)
 		self.time_left = timer_data.get("time_left_seconds", 0.0)
 		self.brewing_potion_id = timer_data.get("resource_id")
-		print('TIMER FOUND')
 	else:
 		# No timer data means it's idle.
 		self.is_brewing = false
 		self.time_left = 0.0
-		print('NO TIMER')
-	print('CAULDRON IS UPDATED')
-	print('CURRENT STATE IS')
-	print(is_brewing)
-	print(brewing_potion_id.is_empty())
+	print('[ITEM STATUS] CAULDRON IS UPDATED')
 	update_visual_state()
 
 # This is the signal handler for when this cauldron's state is updated.
@@ -73,7 +70,7 @@ func _on_item_state_updated(item_data: Dictionary) -> void:
 	if item_data.get("item_id") != self.item_id:
 		return
 
-	print("Cauldron '%s' received a state update from the server." % self.item_id)
+	print("[ITEM STATUS] Cauldron '%s' received a state update from the server." % self.item_id)
 	update_state_from_data(item_data)
 
 # This is the function called by the Grimoire UI.
@@ -82,18 +79,18 @@ func start_brewing_with_potion(potion_to_brew_id: String) -> void:
 		print("Cannot brew, this cauldron is already busy!")
 		return
 
-	print("Cauldron '%s' sending request to brew potion '%s'" % [self.item_id, potion_to_brew_id])
+	print("[ITEM STATUS] Cauldron '%s' sending request to brew potion '%s'" % [self.item_id, potion_to_brew_id])
 
 	var data: Dictionary     = {
-				   "user_id": PlayerData.user_id,
-				   "potion_id": potion_to_brew_id
-			   }
+					"user_id": PlayerData.user_id,
+					"potion_id": potion_to_brew_id
+				}
 	var metadata: Dictionary = {
-				   "type": "start_brewing",
-				   "item_id": self.item_id
-			   }
+					"type": "start_brewing",
+					"item_id": self.item_id
+				}
 	var endpoint: String     = "/items/%s/brew" % self.item_id
-	NetworkManagerGlobal.post_request(endpoint, data, metadata)
+	NetworkManager.post_request(endpoint, data, metadata)
 
 # This function updates the UI based on the cauldron's current state.
 func update_visual_state():
@@ -105,7 +102,6 @@ func update_visual_state():
 	if is_ready_to_collect:
 		# Get the potion resource to find its icon
 		var potion_res: PotionResource = ResourceManager.get_potion(brewing_potion_id)
-		print('POTION IN READY TO COLLECT')
 		print(potion_res.item_name)
 		if potion_res and potion_res.icon:
 			collect_potion_button.texture_normal = potion_res.icon
@@ -116,14 +112,14 @@ func update_visual_state():
 
 
 func _on_collect_button_pressed():
-	print("Collecting potion '%s' from cauldron '%s'" % [brewing_potion_id, item_id])
+	print("[ITEM STATUS] Collecting potion '%s' from cauldron '%s'" % [brewing_potion_id, item_id])
 
 	var data: Dictionary     = {"user_id": PlayerData.user_id}
 	var metadata: Dictionary = {"type": "collect_item", "item_id": self.item_id}
 	var endpoint: String     = "/items/%s/collect" % self.item_id
-	NetworkManagerGlobal.post_request(endpoint, data, metadata)
+	NetworkManager.post_request(endpoint, data, metadata)
 
-	# Immediately hide the button to prevent double-clicks
+	# hide the button to prevent double-clicks
 	collect_potion_button.visible = false
 
 
@@ -131,7 +127,7 @@ func _on_item_collected(item_id_from_signal: String, response_data: Dictionary) 
 	if item_id_from_signal != self.item_id:
 		return
 
-	print("Server confirmed collection for cauldron '%s'. Result: %s" % [self.item_id, response_data])
+	print("[ITEM STATUS] Server confirmed collection for cauldron '%s'. Result: %s" % [self.item_id, response_data])
 	# Reset the cauldron to its idle state
 	self.brewing_potion_id = ""
 	update_visual_state()

@@ -21,6 +21,14 @@ signal item_state_updated(item_data)
 ## Emitted when a potion/ingredient is claimed
 signal item_collected(item_data)
 
+## Emitted when item state info is requested
+signal request_single_item_update(item_id)
+
+### Gameplay Error Signals
+
+## Emitted when there's an issue with the 
+signal request_failed(response_code, body, metadata)
+
 ### -- Data Loading Signals --
 ## Emitted after the NetworkManager gets a list of all static item types
 signal item_types_received(item_data)

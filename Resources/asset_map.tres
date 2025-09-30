@@ -1,12 +1,27 @@
-[gd_resource type="Resource" load_steps=101 format=3 uid="uid://b2o7u65q3batc"]
+[gd_resource type="Resource" load_steps=106 format=3 uid="uid://b2o7u65q3batc"]
 
-[ext_resource type="Script" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
+[ext_resource type="Script" uid="uid://bihj653s5ln5h" path="res://Resources/AssetMapValueHolder.gd" id="1_2g7n0"]
+[ext_resource type="Texture2D" uid="uid://c41uq5cb3n73x" path="res://visuals/Garden/Ingredients/Garden ingredients/Common/Clover.png" id="2_1ir4e"]
+[ext_resource type="Script" uid="uid://gun70mno0w7v" path="res://Resources/Definitions/ingredient_art_definition.gd" id="3_w1xrf"]
+[ext_resource type="Texture2D" uid="uid://bfri3im3mor7" path="res://visuals/Garden/Ingredients/Garden final growing stage/Common/Clover_Small.png" id="4_muf15"]
 
 [sub_resource type="GDScript" id="GDScript_46bsj"]
 script/source = "extends Resource
 
 @export var sprite_map: Dictionary[String, AssetMapValueHolder]
 "
+
+[sub_resource type="Resource" id="Resource_osyjs"]
+script = ExtResource("3_w1xrf")
+ui_icon = ExtResource("2_1ir4e")
+growing_sprite = ExtResource("4_muf15")
+ready_sprite = ExtResource("2_1ir4e")
+metadata/_custom_type_script = "uid://gun70mno0w7v"
+
+[sub_resource type="Resource" id="Resource_r1ct6"]
+script = ExtResource("1_2g7n0")
+ingredient_resource = SubResource("Resource_osyjs")
+metadata/_custom_type_script = "uid://bihj653s5ln5h"
 
 [sub_resource type="Resource" id="Resource_2g7n0"]
 script = ExtResource("1_2g7n0")
@@ -501,6 +516,7 @@ metadata/_custom_type_script = "uid://bihj653s5ln5h"
 [resource]
 script = SubResource("GDScript_46bsj")
 sprite_map = Dictionary[String, ExtResource("1_2g7n0")]({
+"ingredient_four-leafclover": SubResource("Resource_r1ct6"),
 "potion_aquarius": SubResource("Resource_2g7n0"),
 "potion_aquaticbreathingelixir": SubResource("Resource_esymp"),
 "potion_arcanemirrortonic": SubResource("Resource_04yvf"),

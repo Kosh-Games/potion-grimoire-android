@@ -1,4 +1,3 @@
-class_name NetworkManager
 extends Node
 
 # --- Basic Config ---
@@ -22,7 +21,7 @@ func _login():
 		file.close()
 
 	if saved_id.is_empty():
-		print('user_id was empty')
+		print('[NETWORK MANAGER] user_id was empty')
 		saved_id = user_id
 
 	var data_to_send: Dictionary = {"id": saved_id}
@@ -40,10 +39,10 @@ func get_request(endpoint: String, metadata: Dictionary):
 	# GET requests don't have a body, so headers are simpler.
 	var headers: Array[Variant] = ["Content-Type: application/json"]
 
-	print("Sending GET request to '%s' with metadata: %s" % [endpoint, metadata])
+	print("[NETWORK MANAGER] Sending GET request to '%s' with metadata: %s" % [endpoint, metadata])
 	var error = http_request.request(url, headers, HTTPClient.METHOD_GET)
 	if error != OK:
-		printerr("HTTPRequest failed for '%s': %s" % [endpoint, error])
+		printerr("[NETWORK MANAGER] HTTPRequest failed for '%s': %s" % [endpoint, error])
 		http_request.queue_free()
 
 # --- POST Request Template ---
@@ -58,20 +57,35 @@ func post_request(endpoint: String, data: Dictionary, metadata: Dictionary):
 	var headers: Array[Variant] = ["Content-Type: application/json"]
 	var body: String            = JSON.stringify(data)
 
-	print("Sending POST to '%s' with metadata: %s" % [endpoint, metadata])
+	print("[NETWORK MANAGER] Sending POST to '%s' with metadata: %s" % [endpoint, metadata])
 	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
 	if error != OK:
-		printerr("HTTPRequest failed for '%s': %s" % [endpoint, error])
+		printerr("[NETWORK MANAGER] HTTPRequest failed for '%s': %s" % [endpoint, error])
 		http_request.queue_free()
+		
+		
+## In internal _on_request_completed function from the HTTPRequest node
+func _on_internal_request_completed(_result, response_code, _headers, body_data, metadata) -> void:
+	var response_body = JSON.parse_string(body_data.get_string_from_utf8())
+	if response_code >= 200 and response_code < 300:
+		# SUCCESS
+		emit_signal("request_completed", response_body, metadata)
+	else:
+		# FAILURE
+		print("[NETWORK MANAGER] Request failed! Code: %s, Body: %s" % [response_code, response_body])
+		emit_signal("request_failed", response_code, response_body, metadata)
+
 
 # --- Response Handling ---
-func _on_request_completed(result, response_code, headers, body, metadata, request_node: HTTPRequest):
+func _on_request_completed(_result, response_code, _headers, body, metadata, request_node: HTTPRequest) -> void:
 	var response_body = JSON.parse_string(body.get_string_from_utf8())
 	var request_type = metadata.get("type", "unknown")
 
 	if response_code != 200:
-		printerr("API Error for '%s': Status %d, Body: %s" % [request_type, response_code, response_body])
-		# You might want to add failure signals for get requests here too
+		printerr("[NETWORK MANAGER] API Error for '%s': Status %d, Body: %s" % [request_type, response_code, response_body])
+		# Adding the fail signal so we can display an error
+		SignalBus.emit_signal("request_failed", response_code, response_body, metadata)
+		
 		request_node.queue_free()
 		return
 
@@ -108,7 +122,13 @@ func _on_request_completed(result, response_code, headers, body, metadata, reque
 			
 		"get_recipes":
 			SignalBus.emit_signal("recipes_received", response_body)
-
+			
+		"start_growing":
+			SignalBus.emit_signal("item_state_updated", response_body)
+			
+		"single_item_verification":
+			SignalBus.emit_signal("item_state_updated", response_body)
+		
 		_:
 			print("Received response for unknown request type: ", request_type)
 

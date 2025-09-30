@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4gwraj44qlju"]
+[gd_scene load_steps=18 format=3 uid="uid://c4gwraj44qlju"]
 
 [ext_resource type="Script" uid="uid://b47hvuleuso5b" path="res://PotionMaking/potions_state_manager.gd" id="1_ad18p"]
 [ext_resource type="Script" uid="uid://ckohbfqm8cxct" path="res://PotionMaking/main_potion_making.gd" id="1_s8o4b"]
 [ext_resource type="Texture2D" uid="uid://vnaufjt3coy2" path="res://visuals/MainPotionMaking/New/Background .png" id="3_dkvq6"]
 [ext_resource type="Texture2D" uid="uid://dpmxnl3ib01l4" path="res://visuals/MainPotionMaking/New/Table.png" id="4_a8s81"]
 [ext_resource type="Texture2D" uid="uid://cgvpocnrfycy1" path="res://visuals/MainPotionMaking/New/Window.png" id="5_6e38n"]
+[ext_resource type="Texture2D" uid="uid://c1ibv3nejayl5" path="res://visuals/Garden/ночной вид.png" id="5_83oa1"]
 [ext_resource type="Script" uid="uid://bb05iqf7mu1kw" path="res://PotionMaking/grimoire.gd" id="5_cfo61"]
 [ext_resource type="Script" uid="uid://bp4qy5ody55ii" path="res://PotionMaking/cauldron_carousel.gd" id="6_5gl6q"]
 [ext_resource type="Texture2D" uid="uid://c7mux7lwn8jgg" path="res://visuals/MainPotionMaking/New/Window mask.png" id="6_83oa1"]
@@ -39,6 +40,28 @@ grow_horizontal = 2
 texture = ExtResource("3_dkvq6")
 metadata/_edit_use_anchors_ = true
 
+[node name="WindowMask" type="TextureRect" parent="Visuals"]
+z_index = -1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.503923
+anchor_right = 1.0
+anchor_bottom = 0.728103
+offset_right = 1440.0
+offset_bottom = 3120.0002
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_83oa1")
+metadata/_edit_use_anchors_ = true
+
+[node name="BehindTheWindow" type="TextureRect" parent="Visuals"]
+z_index = -1
+offset_left = 193.065
+offset_top = 348.3
+offset_right = 1238.0
+offset_bottom = 1668.3115
+texture = ExtResource("5_83oa1")
+
 [node name="Desktop" type="TextureRect" parent="Visuals"]
 z_index = -1
 anchors_preset = -1
@@ -65,20 +88,6 @@ offset_bottom = 3120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_6e38n")
-metadata/_edit_use_anchors_ = true
-
-[node name="WindowMask" type="TextureRect" parent="Visuals"]
-z_index = -1
-anchors_preset = -1
-anchor_left = 0.001
-anchor_top = 0.503923
-anchor_right = 1.0
-anchor_bottom = 0.728103
-offset_right = 1440.0
-offset_bottom = 3120.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_83oa1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Table" type="Node2D" parent="."]
